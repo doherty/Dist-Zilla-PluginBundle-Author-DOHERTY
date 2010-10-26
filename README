@@ -1,0 +1,94 @@
+NAME
+    Dist::Zilla::PluginBundle::DOHERTY - Dist::Zilla configuration the way
+    DOHERTY does it
+
+VERSION
+    version 0.001
+
+SYNOPSIS
+        # in dist.ini
+        [@DOHERTY]
+
+DESCRIPTION
+    "Dist::Zilla::PluginBundle::DOHERTY" provides shorthand for a
+    Dist::Zilla configuration like:
+
+        [Git::Check]
+        [@Filter]
+        -bundle = @Basic    ; Equivalent to using [@Basic]
+        -remove = Readme    ; For use with [CopyReadmeFromBuild]
+        -remove = ExtraTests
+
+        [AutoPrereqs]
+        [MinimumPerl]
+        [Repository]
+        [Bugtracker]
+        :version = 1.102670 ; To set bugtracker
+        web = http://github.com/doherty/%s/issues
+        [PodWeaver]
+        [InstallGuide]
+        [ReadmeFromPod]
+        [CopyReadmeFromBuild]
+
+        [Git::NextVersion]
+        [PkgVersion]
+        [NextRelease]
+        filename = CHANGES
+        format   = %-9v %{yyyy-MM-dd}d
+        [CheckChangesHasContent]
+        changelog = CHANGES
+
+        [Git::Commit]
+        [Git::Tag]
+
+        [@TestingMania]
+        [LocalInstall]
+
+USAGE
+    Just put "[@DOHERTY]" in your dist.ini. You can supply the following
+    options:
+
+    *   "fake_release" specifies whether to use "FakeRelease" instead of
+        "UploadToCPAN". Defaults to 0.
+
+    *   "bugtracker" specifies a URL for your bug tracker. This is passed to
+        "Bugtracker", so the same interpolation rules apply. Defaults to
+        "http://github.com/doherty/%s/issues'".
+
+    *   "add_tests" is a comma-separated list of testing plugins to add to
+        "TestingMania".
+
+    *   "skip_tests" is a comma-separated list of testing plugins to skip in
+        "TestingMania".
+
+SEE ALSO
+    "Dist::Zilla"
+
+AVAILABILITY
+    The latest version of this module is available from the Comprehensive
+    Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
+    CPAN site near you, or see
+    <http://search.cpan.org/dist/Dist-Zilla-PluginBundle-DOHERTY/>.
+
+    The development version lives at
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY> and may be
+    cloned from <git://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY>.
+    Instead of sending patches, please fork this project using the standard
+    git and github infrastructure.
+
+BUGS AND LIMITATIONS
+    No bugs have been reported.
+
+    Please report any bugs or feature requests through the web interface at
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY/issues>.
+
+AUTHOR
+    Mike Doherty <doherty@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is Copyright (c) 2010 by Mike Doherty.
+
+    This is free software, licensed under:
+
+      The GNU General Public License, Version 3, June 2007
+
