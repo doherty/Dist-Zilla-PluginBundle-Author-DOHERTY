@@ -61,6 +61,12 @@ USAGE
     *   "skip_tests" is a comma-separated list of testing plugins to skip in
         "TestingMania".
 
+    *   "tag_format" specifies how a git release tag should be named. This
+        is passed to "Git::Tag".
+
+    *   "version_regex" specifies a regexp to find the version number part
+        of a git release tag. This is passed to "Git::NextVersion".
+
 SEE ALSO
     "Dist::Zilla"
 

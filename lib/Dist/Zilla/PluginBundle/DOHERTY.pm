@@ -141,6 +141,34 @@ has skip_tests => (
     default => '',
 );
 
+=item *
+
+C<tag_format> specifies how a git release tag should be named. This is
+passed to C<L<Git::Tag|Dist::Zilla::Plugin::Git::Tag>>.
+
+=cut
+
+has tag_format => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{tag_format} || 'release-%v' },
+);
+
+=item *
+
+C<version_regex> specifies a regexp to find the version number part of
+a git release tag. This is passed to C<L<Git::NextVersion|Dist::Zilla::Plugin::Git::NextVersion>>.
+
+=cut
+
+has version_regexp => (
+    is      => 'ro',
+    isa     => 'Str',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{version_regexp} || '^release-(.+)$' },
+);
+
 =back
 
 =cut
@@ -150,7 +178,7 @@ sub configure {
 
     $self->add_plugins(
         # Version number
-        [ 'Git::NextVersion' => { version_regexp => '^release-(.+)$' } ],
+        [ 'Git::NextVersion' => { version_regexp => $self->version_regexp } ],
         'PkgVersion',
 
         # Gather & prune
@@ -191,7 +219,7 @@ sub configure {
         # After release
         'LocalInstall',
         'Git::Commit',
-        [ 'Git::Tag' => { tag_format => 'release-%v' } ],
+        [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
 
