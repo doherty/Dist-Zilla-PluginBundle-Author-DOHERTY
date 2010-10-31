@@ -209,7 +209,7 @@ sub configure {
 
         # Before release
         'Git::Check',
-        'CheckChangesHasContent',
+        [ 'CheckChangesHasContent' => { changelog => 'CHANGES' } ],
         'TestRelease',
         'ConfirmRelease',
 
