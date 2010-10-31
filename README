@@ -26,6 +26,7 @@ DESCRIPTION
         :version = 1.102670 ; To set bugtracker
         web = http://github.com/doherty/%s/issues
         [PodWeaver]
+        config_plugin = @DOHERTY
         [InstallGuide]
         [ReadmeFromPod]
         [CopyReadmeFromBuild]

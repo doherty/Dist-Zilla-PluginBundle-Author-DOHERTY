@@ -29,6 +29,7 @@ a L<Dist::Zilla> configuration like:
     :version = 1.102670 ; To set bugtracker
     web = http://github.com/doherty/%s/issues
     [PodWeaver]
+    config_plugin = @DOHERTY
     [InstallGuide]
     [ReadmeFromPod]
     [CopyReadmeFromBuild]
@@ -197,7 +198,7 @@ sub configure {
         [ 'Bugtracker' => { web => $self->bugtracker } ],
 
         # File munging
-        'PodWeaver',
+        [ 'PodWeaver' => { config_plugin => '@DOHERTY' } ],
 
         # Build system
         'ExecDir',
