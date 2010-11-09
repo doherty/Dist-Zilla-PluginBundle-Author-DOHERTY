@@ -3,7 +3,7 @@ use warnings;
 use diagnostics;
 
 package Dist::Zilla::PluginBundle::DOHERTY;
-# ABSTRACT: Dist::Zilla configuration the way DOHERTY does it
+# ABSTRACT: configure Dist::Zilla like DOHERTY
 # ENCODING: utf-8
 
 =head1 SYNOPSIS
