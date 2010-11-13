@@ -1,10 +1,9 @@
 use strict;
 use warnings;
-use diagnostics;
+#use diagnostics;
 
 package Dist::Zilla::PluginBundle::DOHERTY;
 # ABSTRACT: configure Dist::Zilla like DOHERTY
-# ENCODING: utf-8
 
 =head1 SYNOPSIS
 
@@ -226,8 +225,8 @@ sub configure {
 
     $self->add_bundle(
         'TestingMania' => {
-            add => $self->add_tests,
-            skip => $self->skip_tests,
+            add => $self->payload->{'add_tests'},
+            skip => $self->payload->{'skip_tests'},
         }
     );
 }

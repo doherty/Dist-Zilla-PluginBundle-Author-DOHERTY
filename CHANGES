@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Fix passing skip_tests and add_tests to Dist::Zilla::PluginBundle::TestingMania
 
 0.001     2010-10-31
     * Initial version
