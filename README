@@ -1,9 +1,8 @@
 NAME
-    Dist::Zilla::PluginBundle::DOHERTY - Dist::Zilla configuration the way
-    DOHERTY does it
+    Dist::Zilla::PluginBundle::DOHERTY - configure Dist::Zilla like DOHERTY
 
 VERSION
-    version 0.001
+    version 0.002
 
 SYNOPSIS
         # in dist.ini

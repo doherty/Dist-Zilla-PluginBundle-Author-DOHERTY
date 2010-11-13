@@ -73,7 +73,7 @@ use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
-use Dist::Zilla::Plugin::LocalInstall                   qw();
+use Dist::Zilla::Plugin::InstallRelease     0.002       qw();
 
 use Pod::Weaver::Section::BugsAndLimitations 1.102670   qw(); # To read from D::Z::P::Bugtracker
 
@@ -218,7 +218,7 @@ sub configure {
         ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),
 
         # After release
-        'LocalInstall',
+        'InstallRelease',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
