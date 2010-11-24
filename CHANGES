@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Require Pod::Weaver::PluginBundle::DOHERTY
 
 0.002     2010-11-13
     * Fix passing skip_tests and add_tests to Dist::Zilla::PluginBundle::TestingMania

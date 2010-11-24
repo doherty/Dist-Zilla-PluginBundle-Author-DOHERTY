@@ -59,8 +59,8 @@ use Dist::Zilla 4.102341; # dzil authordeps
 use Dist::Zilla::Plugin::Git::Check                     qw();
 use Dist::Zilla::Plugin::AutoPrereqs                    qw();
 use Dist::Zilla::Plugin::MinimumPerl                    qw();
-use Dist::Zilla::Plugin::Repository         0.13        qw(); # v2 Meta spec
-use Dist::Zilla::Plugin::Bugtracker         1.102670    qw(); # to set bugtracker in dist.ini
+use Dist::Zilla::Plugin::Repository                0.13 qw(); # v2 Meta spec
+use Dist::Zilla::Plugin::Bugtracker            1.102670 qw(); # to set bugtracker in dist.ini
 use Dist::Zilla::Plugin::PodWeaver                      qw();
 use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
@@ -72,9 +72,10 @@ use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
-use Dist::Zilla::Plugin::InstallRelease     0.002       qw();
+use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 
-use Pod::Weaver::Section::BugsAndLimitations 1.102670   qw(); # To read from D::Z::P::Bugtracker
+use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # To read from D::Z::P::Bugtracker
+use Pod::Weaver::PluginBundle::DOHERTY            0.001 qw();
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
