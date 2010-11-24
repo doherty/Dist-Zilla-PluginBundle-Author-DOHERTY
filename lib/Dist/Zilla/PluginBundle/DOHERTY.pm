@@ -189,7 +189,6 @@ sub configure {
 
         # Generate dist files & metadata
         'ReadmeFromPod',
-        'CopyReadmeFromBuild',
         'License',
         'MinimumPerl',
         'AutoPrereqs',
@@ -209,7 +208,7 @@ sub configure {
         'Manifest',
 
         # Before release
-        'Git::Check',
+        [ 'Git::Check' => { allow_dirty => 'README' } ],
         [ 'CheckChangesHasContent' => { changelog => 'CHANGES' } ],
         'TestRelease',
         'ConfirmRelease',
@@ -219,6 +218,7 @@ sub configure {
 
         # After release
         'InstallRelease',
+        'CopyReadmeFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
@@ -226,7 +226,7 @@ sub configure {
 
     $self->add_bundle(
         'TestingMania' => {
-            add => $self->payload->{'add_tests'},
+            add  => $self->payload->{'add_tests'},
             skip => $self->payload->{'skip_tests'},
         }
     );
