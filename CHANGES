@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+
+0.003     2010-11-24
     * Require Pod::Weaver::PluginBundle::DOHERTY
     * Allow README to be dirty - it always will be since we copy from build
 
