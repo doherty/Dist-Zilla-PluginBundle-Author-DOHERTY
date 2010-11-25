@@ -64,7 +64,7 @@ use Dist::Zilla::Plugin::Bugtracker            1.102670 qw(); # to set bugtracke
 use Dist::Zilla::Plugin::PodWeaver                      qw();
 use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
-use Dist::Zilla::Plugin::CopyReadmeFromBuild            qw();
+use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0015 qw(); # to avoid circular dependencies
 use Dist::Zilla::Plugin::Git::NextVersion               qw();
 use Dist::Zilla::Plugin::PkgVersion                     qw();
 use Dist::Zilla::Plugin::NextRelease                    qw();
@@ -74,7 +74,7 @@ use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
 use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 
-use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # To read from D::Z::P::Bugtracker
+use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use Pod::Weaver::PluginBundle::DOHERTY            0.001 qw();
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';

@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Avoid circular depenencies in Dist::Zilla::PluginBundle::ROKR (which provides CopyReadmeFromBuild)
 
 0.003     2010-11-24
     * Require Pod::Weaver::PluginBundle::DOHERTY
