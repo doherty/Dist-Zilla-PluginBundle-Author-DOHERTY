@@ -209,7 +209,7 @@ sub configure {
         'Manifest',
 
         # Before release
-        [ 'Git::Check' => { allow_dirty => 'README' } ],
+        [ 'Git::Check' => { changelog => 'CHANGES' } ],
         [ 'CheckChangesHasContent' => { changelog => 'CHANGES' } ],
         'TestRelease',
         'CheckExtraTests',
