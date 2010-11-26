@@ -73,6 +73,7 @@ use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
 use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
+use Dist::Zilla::Plugin::CheckExtraTests                qw();
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use Pod::Weaver::PluginBundle::DOHERTY            0.001 qw();
@@ -211,6 +212,7 @@ sub configure {
         [ 'Git::Check' => { allow_dirty => 'README' } ],
         [ 'CheckChangesHasContent' => { changelog => 'CHANGES' } ],
         'TestRelease',
+        'CheckExtraTests',
         'ConfirmRelease',
 
         # Release
