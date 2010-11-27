@@ -76,7 +76,7 @@ use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
-use Pod::Weaver::PluginBundle::DOHERTY            0.001 qw();
+use Pod::Weaver::PluginBundle::DOHERTY            0.002 qw();
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
@@ -219,10 +219,10 @@ sub configure {
         ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),
 
         # After release
-        'InstallRelease',
         'CopyReadmeFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
+        'InstallRelease',
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
 

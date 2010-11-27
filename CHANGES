@@ -4,6 +4,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
     * Avoid circular depenencies in Dist::Zilla::PluginBundle::ROKR (which provides CopyReadmeFromBuild)
     * Add Dist::Zilla::Plugin::CheckExtraTests dependency, which provides the xtest command in addition to the plugin itself
     * Fix Git::Commit so it really commits
+    * Bumped version of Pod::Weaver::PluginBundle::DOHERTY
 
 0.003     2010-11-24
     * Require Pod::Weaver::PluginBundle::DOHERTY
