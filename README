@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::PluginBundle::DOHERTY - configure Dist::Zilla like DOHERTY
 
 VERSION
-    version 0.003
+    version 0.004
 
 SYNOPSIS
         # in dist.ini
@@ -77,8 +77,8 @@ AVAILABILITY
     <http://search.cpan.org/dist/Dist-Zilla-PluginBundle-DOHERTY/>.
 
     The development version lives at
-    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY.git> and may
-    be cloned from
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY> and may be
+    cloned from
     <git://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY.git>. Instead
     of sending patches, please fork this project using the standard git and
     github infrastructure.
