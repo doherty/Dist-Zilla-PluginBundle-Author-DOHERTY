@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Re-upload properly - no changes since 0.004
 
 0.004     2011-01-11
     * Avoid circular depenencies in Dist::Zilla::PluginBundle::ROKR (which provides CopyReadmeFromBuild)
