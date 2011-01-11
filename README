@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::PluginBundle::DOHERTY - configure Dist::Zilla like DOHERTY
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
         # in dist.ini
