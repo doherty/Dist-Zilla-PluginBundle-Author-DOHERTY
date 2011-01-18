@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+
+0.006     2011-01-18
     * Tweet releases
     * Update github information on release
     * Relicensed under the same terms as Perl 5
