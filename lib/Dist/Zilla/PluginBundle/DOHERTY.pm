@@ -76,7 +76,7 @@ use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
 use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
-use Dist::Zilla::Plugin::GithubUpdate                   qw();
+use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
 use Dist::Zilla::Plugin::Twitter                  0.009 qw();
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
@@ -238,7 +238,7 @@ sub configure {
         ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),
 
         # After release
-        [ 'GithubUpdate' => { cpan => 1 } ],
+        [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
         'CopyReadmeFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
