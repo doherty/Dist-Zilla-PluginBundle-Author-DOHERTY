@@ -185,7 +185,9 @@ has twitter => (
     is      => 'ro',
     isa     => 'Bool',
     lazy    => 1,
-    default => sub { $_[0]->payload->{no_twitter} == 1 ? 0 : 1 },
+    default => sub {
+        (defined $_[0]->payload->{no_twitter} and $_[0]->payload->{no_twitter} == 1) ? 0 : 1;
+    },
 );
 
 =back

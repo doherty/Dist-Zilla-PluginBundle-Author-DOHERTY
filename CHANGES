@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Fixed spurious warning
 
 0.007     2011-01-18
     * Fixed undef plugin error when no_twitter is set
