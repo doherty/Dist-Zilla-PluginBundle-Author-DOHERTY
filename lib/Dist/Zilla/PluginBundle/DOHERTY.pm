@@ -237,13 +237,15 @@ sub configure {
 
         # After release
         [ 'GithubUpdate' => { cpan => 1 } ],
-        ( $self->twitter ? [ 'Twitter' => { hash_tags => '#perl #cpan' } ] : undef ),
         'CopyReadmeFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         'InstallRelease',
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
+    $self->add_plugins(
+        [ 'Twitter' => { hash_tags => '#perl #cpan' } ],
+    ) if $self->twitter;
 
     $self->add_bundle(
         'TestingMania' => {
