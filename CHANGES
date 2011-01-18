@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+
+0.008     2011-01-18
     * Fixed spurious warning
     * Require support for p3rl.org in GithubUpdate
 
