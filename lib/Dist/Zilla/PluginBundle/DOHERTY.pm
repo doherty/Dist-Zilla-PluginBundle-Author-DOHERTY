@@ -41,6 +41,8 @@ a L<Dist::Zilla> configuration like:
     [CheckChangesHasContent]
     changelog = CHANGES
 
+    [Twitter]       ; config in ~/.netrc
+    [GithubUpdate]  ; config in ~/.gitconfig
     [Git::Commit]
     [Git::Tag]
 
@@ -74,6 +76,8 @@ use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
 use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
+use Dist::Zilla::Plugin::GithubUpdate                   qw();
+use Dist::Zilla::Plugin::Twitter                  0.009 qw();
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use Pod::Weaver::PluginBundle::DOHERTY            0.002 qw();
@@ -171,6 +175,19 @@ has version_regexp => (
     default => sub { $_[0]->payload->{version_regexp} || '^release-(.+)$' },
 );
 
+=item *
+
+C<no_twitter> says that releases of this module shouldn't be tweeted.
+
+=cut
+
+has twitter => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{no_twitter} == 1 ? 0 : 1 },
+);
+
 =back
 
 =cut
@@ -219,6 +236,8 @@ sub configure {
         ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),
 
         # After release
+        [ 'GithubUpdate' => { cpan => 1 } ],
+        ( $self->twitter ? [ 'Twitter' => { hash_tags => '#perl #cpan' } ] : undef ),
         'CopyReadmeFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],

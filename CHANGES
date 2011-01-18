@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+    * Tweet releases
+    * Update github information on release
 
 0.005     2011-01-11
     * Re-upload properly - no changes since 0.004
