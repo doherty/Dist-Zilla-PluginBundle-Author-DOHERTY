@@ -245,15 +245,14 @@ sub configure {
         'InstallRelease',
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
-    $self->add_plugins(
-        [ 'Twitter' => { hash_tags => '#perl #cpan' } ],
-    ) if $self->twitter;
+    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan' } ])
+        if ($self->twitter and not $self->fake_release);
 
     $self->add_bundle(
         'TestingMania' => {
             add  => $self->payload->{'add_tests'},
             skip => $self->payload->{'skip_tests'},
-        }
+        },
     );
 }
 
