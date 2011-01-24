@@ -77,7 +77,8 @@ use Dist::Zilla::PluginBundle::TestingMania             qw();
 use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
 use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
-use Dist::Zilla::Plugin::Twitter                  0.009 qw();
+use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
+use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use Pod::Weaver::PluginBundle::DOHERTY            0.002 qw();
@@ -245,7 +246,7 @@ sub configure {
         'InstallRelease',
         [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
-    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan' } ])
+    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'IsGd' } ])
         if ($self->twitter and not $self->fake_release);
 
     $self->add_bundle(
@@ -263,7 +264,7 @@ C<L<Dist::Zilla>>
 =cut
 
 __PACKAGE__->meta->make_immutable;
-
+no Moose;
 1;
 
 __END__
