@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-DOHERTY
 
 {{$NEXT}}
+
+0.009     2011-01-23
     * Handle the case where it is a fake release
     * Use is.gd to shorten URL for Twitter
 
