@@ -3,11 +3,11 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.010
+    version 0.011
 
 SYNOPSIS
         # in dist.ini
-        [@DOHERTY]
+        [@Author::DOHERTY]
 
 DESCRIPTION
     "Dist::Zilla::PluginBundle::Author::DOHERTY" provides shorthand for a
