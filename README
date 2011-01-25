@@ -1,16 +1,17 @@
 NAME
-    Dist::Zilla::PluginBundle::DOHERTY - configure Dist::Zilla like DOHERTY
+    Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like
+    DOHERTY
 
 VERSION
-    version 0.009
+    version 0.010
 
 SYNOPSIS
         # in dist.ini
         [@DOHERTY]
 
 DESCRIPTION
-    "Dist::Zilla::PluginBundle::DOHERTY" provides shorthand for a
-    Dist::Zilla configuration like:
+    "Dist::Zilla::PluginBundle::Author::DOHERTY" provides shorthand for a
+    Dist::Zilla configuration approximate like:
 
         [Git::Check]
         [@Filter]
@@ -71,6 +72,8 @@ USAGE
 
     *   "no_twitter" says that releases of this module shouldn't be tweeted.
 
+    *   "surgical" says to use Dist::Zilla::Plugin::SurgicalPodWeaver.
+
 SEE ALSO
     "Dist::Zilla"
 
@@ -78,20 +81,21 @@ AVAILABILITY
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
     CPAN site near you, or see
-    <http://search.cpan.org/dist/Dist-Zilla-PluginBundle-DOHERTY/>.
+    <http://search.cpan.org/dist/Dist-Zilla-PluginBundle-Author-DOHERTY/>.
 
     The development version lives at
-    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY> and may be
-    cloned from
-    <git://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY.git>. Instead
-    of sending patches, please fork this project using the standard git and
-    github infrastructure.
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY> and
+    may be cloned from
+    <git://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY.git>.
+    Instead of sending patches, please fork this project using the standard
+    git and github infrastructure.
 
 BUGS AND LIMITATIONS
     No bugs have been reported.
 
     Please report any bugs or feature requests through the web interface at
-    <http://github.com/doherty/Dist-Zilla-PluginBundle-DOHERTY/issues>.
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issues
+    >.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

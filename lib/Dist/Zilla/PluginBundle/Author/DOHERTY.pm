@@ -2,7 +2,7 @@ use strict;
 use warnings;
 #use diagnostics;
 
-package Dist::Zilla::PluginBundle::DOHERTY;
+package Dist::Zilla::PluginBundle::Author::DOHERTY;
 # ABSTRACT: configure Dist::Zilla like DOHERTY
 
 =head1 SYNOPSIS
@@ -12,8 +12,8 @@ package Dist::Zilla::PluginBundle::DOHERTY;
 
 =head1 DESCRIPTION
 
-C<Dist::Zilla::PluginBundle::DOHERTY> provides shorthand for
-a L<Dist::Zilla> configuration like:
+C<Dist::Zilla::PluginBundle::Author::DOHERTY> provides shorthand for
+a L<Dist::Zilla> configuration approximate like:
 
     [Git::Check]
     [@Filter]
@@ -64,6 +64,7 @@ use Dist::Zilla::Plugin::MinimumPerl                    qw();
 use Dist::Zilla::Plugin::Repository                0.13 qw(); # v2 Meta spec
 use Dist::Zilla::Plugin::Bugtracker            1.102670 qw(); # to set bugtracker in dist.ini
 use Dist::Zilla::Plugin::PodWeaver                      qw();
+use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
 use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
 use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0015 qw(); # to avoid circular dependencies
@@ -74,7 +75,7 @@ use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::PluginBundle::TestingMania             qw();
-use Dist::Zilla::Plugin::InstallRelease           0.002 qw();
+use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
 use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
 use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
@@ -191,6 +192,19 @@ has twitter => (
     },
 );
 
+=item *
+
+C<surgical> says to use L<Dist::Zilla::Plugin::SurgicalPodWeaver>.
+
+=cut
+
+has surgical => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{surgical} || 0 },
+);
+
 =back
 
 =cut
@@ -218,7 +232,10 @@ sub configure {
         [ 'Bugtracker' => { web => $self->bugtracker } ],
 
         # File munging
-        [ 'PodWeaver' => { config_plugin => '@DOHERTY' } ],
+        ( $self->surgical
+            ? 'SurgicalPodWeaver'#[ 'SurgicalPodWeaver' => { config_plugin => '@DOHERTY' } ]
+            : [ 'PodWeaver'         => { config_plugin => '@DOHERTY' } ]
+        ),
 
         # Build system
         'ExecDir',
