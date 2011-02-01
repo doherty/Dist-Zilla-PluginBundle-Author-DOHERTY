@@ -74,7 +74,7 @@ use Dist::Zilla::Plugin::NextRelease                    qw();
 use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
-use Dist::Zilla::PluginBundle::TestingMania             qw();
+use Dist::Zilla::PluginBundle::TestingMania       0.003 qw(); # better deps tree & PodLinkTests
 use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
 use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
