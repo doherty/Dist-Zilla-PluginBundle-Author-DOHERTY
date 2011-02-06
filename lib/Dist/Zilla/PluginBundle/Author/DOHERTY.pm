@@ -32,6 +32,7 @@ a L<Dist::Zilla> configuration approximate like:
     [InstallGuide]
     [ReadmeFromPod]
     [CopyReadmeFromBuild]
+    [CopyMakefilePLFromBuild]
 
     [Git::NextVersion]
     [PkgVersion]
@@ -80,6 +81,7 @@ use Dist::Zilla::Plugin::CheckExtraTests                qw();
 use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
 use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
 use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
+use Dist::Zilla::Plugin::CopyMakefilePLFromBuild 0.0015 qw(); # to avoid circular dependencies
 
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use Pod::Weaver::PluginBundle::Author::DOHERTY    0.004 qw(); # new name
@@ -258,6 +260,7 @@ sub configure {
         # After release
         [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
         'CopyReadmeFromBuild',
+        'CopyMakefilePLFromBuild',
         'Git::Commit',
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         'InstallRelease',

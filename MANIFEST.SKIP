@@ -63,3 +63,4 @@
 ^MANIFEST\.SKIP$
 ^\.build$
 ^weaver\.ini$
+^Makefile\.PL$

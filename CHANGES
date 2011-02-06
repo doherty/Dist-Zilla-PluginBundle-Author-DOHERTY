@@ -2,6 +2,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Require D::Z::PB::TestingMania 0.003 for a better dep tree & PodLinkTests
+    * Add CopyMakefilePLFromBuild
 
 0.011     2011-01-24
     * Use new name for Pod::Weaver pluginbundle

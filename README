@@ -30,6 +30,7 @@ DESCRIPTION
         [InstallGuide]
         [ReadmeFromPod]
         [CopyReadmeFromBuild]
+        [CopyMakefilePLFromBuild]
 
         [Git::NextVersion]
         [PkgVersion]
