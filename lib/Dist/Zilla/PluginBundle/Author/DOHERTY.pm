@@ -112,7 +112,7 @@ has fake_release => (
 =item *
 
 C<bugtracker> specifies a URL for your bug tracker. This is passed to C<L<Bugtracker|Dist::Zilla::Plugin::Bugtracker>>,
-so the same interpolation rules apply. Defaults to C<http://github.com/doherty/%s/issues'>.
+so the same interpolation rules apply. Defaults to C<http://github.com/doherty/%s/issues>.
 
 =cut
 
