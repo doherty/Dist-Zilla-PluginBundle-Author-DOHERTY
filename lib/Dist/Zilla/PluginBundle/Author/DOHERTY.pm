@@ -90,7 +90,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 =head1 USAGE
 
-Just put C<[@DOHERTY]> in your F<dist.ini>. You can supply the following
+Just put C<[@Author::DOHERTY]> in your F<dist.ini>. You can supply the following
 options:
 
 =over 4
