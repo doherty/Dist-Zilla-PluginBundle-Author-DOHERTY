@@ -110,8 +110,9 @@ has fake_release => (
 
 =item *
 
-C<bugtracker> specifies a URL for your bug tracker. This is passed to C<L<Bugtracker|Dist::Zilla::Plugin::Bugtracker>>,
-so the same interpolation rules apply. Defaults to C<http://github.com/doherty/%s/issues>.
+C<bugtracker> specifies a URL for your bug tracker. This is passed to
+C<L<Bugtracker|Dist::Zilla::Plugin::Bugtracker>>, so the same interpolation
+rules apply. Defaults to C<http://github.com/doherty/%s/issues>.
 
 =cut
 
@@ -257,13 +258,20 @@ sub configure {
         ( $self->fake_release ? 'FakeRelease' : 'UploadToCPAN' ),
 
         # After release
-        [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
         'CopyReadmeFromBuild',
         'CopyMakefilePLFromBuild',
-        'Git::Commit',
+        [ 'NextRelease' => {
+            filename => 'CHANGES',
+            format => '%-9v %{yyyy-MM-dd}d',
+        } ],
+        [ 'Git::Commit' => {
+            allow_dirty => ['Makefile.PL', 'README', 'CHANGES'],
+            commit_msg => 'Released %v%t',
+        } ],
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
+        'Git::Push',
+        [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
         'InstallRelease',
-        [ 'NextRelease' => { filename => 'CHANGES', format => '%-9v %{yyyy-MM-dd}d' } ],
     );
     $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'IsGd' } ])
         if ($self->twitter and not $self->fake_release);

@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Attempt to use Git::Commit and Git::Push properly
     * Use OurPkgVersion instead of PkgVersion - much better
 
 0.012     2011-02-06
