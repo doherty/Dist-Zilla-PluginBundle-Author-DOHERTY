@@ -1,9 +1,8 @@
-use strict;
-use warnings;
-#use diagnostics;
-
 package Dist::Zilla::PluginBundle::Author::DOHERTY;
 # ABSTRACT: configure Dist::Zilla like DOHERTY
+use strict;
+use warnings;
+# VERSION
 
 =head1 SYNOPSIS
 
@@ -70,7 +69,7 @@ use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
 use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0015 qw(); # to avoid circular dependencies
 use Dist::Zilla::Plugin::Git::NextVersion               qw();
-use Dist::Zilla::Plugin::PkgVersion                     qw();
+use Dist::Zilla::Plugin::OurPkgVersion                  qw();
 use Dist::Zilla::Plugin::NextRelease                    qw();
 use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
@@ -217,7 +216,7 @@ sub configure {
     $self->add_plugins(
         # Version number
         [ 'Git::NextVersion' => { version_regexp => $self->version_regexp } ],
-        'PkgVersion',
+        'OurPkgVersion',
 
         # Gather & prune
         'GatherDir',
