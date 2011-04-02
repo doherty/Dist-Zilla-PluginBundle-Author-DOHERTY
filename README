@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.014
+    version 0.015
 
 SYNOPSIS
         # in dist.ini
@@ -26,7 +26,7 @@ DESCRIPTION
         :version = 1.102670 ; To set bugtracker
         web = http://github.com/doherty/%s/issues
         [PodWeaver]
-        config_plugin = @DOHERTY
+        config_plugin = @Author::DOHERTY
         [InstallGuide]
         [ReadmeFromPod]
         [CopyReadmeFromBuild]
@@ -74,6 +74,9 @@ USAGE
     *   "no_twitter" says that releases of this module shouldn't be tweeted.
 
     *   "surgical" says to use Dist::Zilla::Plugin::SurgicalPodWeaver.
+
+    *   "changelog" is the filename of the changelog, and defaults to
+        CHANGES.
 
 SEE ALSO
     "Dist::Zilla"

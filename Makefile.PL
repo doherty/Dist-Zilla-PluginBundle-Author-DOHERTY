@@ -46,7 +46,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::Repository' => '0.13',
     'Dist::Zilla::Plugin::SurgicalPodWeaver' => '0.0015',
     'Dist::Zilla::Plugin::Twitter' => '0.010',
-    'Dist::Zilla::PluginBundle::TestingMania' => '0.003',
+    'Dist::Zilla::PluginBundle::TestingMania' => '0.004',
     'Dist::Zilla::Role::PluginBundle::Easy' => '0',
     'Moose' => '0.99',
     'Moose::Autobox' => '0',
@@ -56,7 +56,7 @@ my %WriteMakefileArgs = (
     'autodie' => '2.00',
     'namespace::autoclean' => '0.09'
   },
-  'VERSION' => '0.014',
+  'VERSION' => '0.015',
   'test' => {
     'TESTS' => 't/*.t'
   }
