@@ -58,32 +58,29 @@ use Moose::Autobox;
 use namespace::autoclean 0.09;
 
 use Dist::Zilla 4.102341; # dzil authordeps
-use Dist::Zilla::Plugin::Git::Check                     qw();
-use Dist::Zilla::Plugin::AutoPrereqs                    qw();
-use Dist::Zilla::Plugin::MinimumPerl                    qw();
-use Dist::Zilla::Plugin::Repository                0.13 qw(); # v2 Meta spec
 use Dist::Zilla::Plugin::Bugtracker            1.102670 qw(); # to set bugtracker in dist.ini
-use Dist::Zilla::Plugin::PodWeaver                      qw();
-use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
-use Dist::Zilla::Plugin::InstallGuide                   qw();
-use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
-use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0017 qw(); # to run during AfterRelease
-use Dist::Zilla::Plugin::Git::NextVersion               qw();
-use Dist::Zilla::Plugin::OurPkgVersion                  qw();
-use Dist::Zilla::Plugin::NextRelease                    qw();
 use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
-use Dist::Zilla::Plugin::Git::Commit                    qw();
-use Dist::Zilla::Plugin::Git::Tag                       qw();
-use Dist::Zilla::PluginBundle::TestingMania       0.006 qw(); # better deps tree & PodLinkTests; ChangesTests
-use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
-use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
-use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
-use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
 use Dist::Zilla::Plugin::CopyMakefilePLFromBuild 0.0017 qw(); # to run during AfterRelease
-
-use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
+use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0017 qw(); # to run during AfterRelease
+use Dist::Zilla::Plugin::Git::Check                     qw();
+use Dist::Zilla::Plugin::Git::Commit                    qw();
+use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
+use Dist::Zilla::Plugin::Git::NextVersion               qw();
+use Dist::Zilla::Plugin::Git::Tag                       qw();
+use Dist::Zilla::Plugin::InstallGuide                   qw();
+use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
+use Dist::Zilla::Plugin::MinimumPerl                    qw();
+use Dist::Zilla::Plugin::OurPkgVersion                  qw();
+use Dist::Zilla::Plugin::PodWeaver                      qw();
+use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
+use Dist::Zilla::Plugin::Repository                0.13 qw(); # v2 Meta spec
+use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
+use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
+use Dist::Zilla::PluginBundle::TestingMania       0.006 qw(); # better deps tree & PodLinkTests; ChangesTests
 use Pod::Weaver::PluginBundle::Author::DOHERTY    0.004 qw(); # new name
+use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
+use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
@@ -162,7 +159,7 @@ has tag_format => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
-    default => sub { $_[0]->payload->{tag_format} || 'release-%v' },
+    default => sub { $_[0]->payload->{tag_format} || 'v%v' },
 );
 
 =item *
@@ -176,7 +173,7 @@ has version_regexp => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
-    default => sub { $_[0]->payload->{version_regexp} || '^release-(.+)$' },
+    default => sub { $_[0]->payload->{version_regexp} || '^(?:v|release-)(.+)$' },
 );
 
 =item *
@@ -243,7 +240,7 @@ sub configure {
         'License',
         'MinimumPerl',
         'AutoPrereqs',
-        'MetaYAML',
+        'MetaJSON',
         'Repository',
         [ 'Bugtracker' => { web => $self->bugtracker } ],
 
@@ -288,7 +285,6 @@ sub configure {
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         'Git::Push',
         [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
-        'InstallRelease',
     );
     $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'IsGd' } ])
         if ($self->twitter and not $self->fake_release);
@@ -299,6 +295,10 @@ sub configure {
             skip => $self->payload->{'skip_tests'},
             changelog => $self->changelog,
         },
+    );
+
+    $self->add_plugins(
+        'InstallRelease',
     );
 }
 
