@@ -65,7 +65,8 @@ use Dist::Zilla::Plugin::CopyMakefilePLFromBuild 0.0017 qw(); # to run during Af
 use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0017 qw(); # to run during AfterRelease
 use Dist::Zilla::Plugin::Git::Check                     qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
-use Dist::Zilla::Plugin::GithubUpdate              0.03 qw(); # Support for p3rl.org
+use Dist::Zilla::Plugin::GitHub::Update            0.06 qw(); # Support for p3rl.org; new name
+use Dist::Zilla::Plugin::GitHub::Meta              0.06 qw(); # new name
 use Dist::Zilla::Plugin::Git::NextVersion               qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::Plugin::InstallGuide                   qw();
@@ -240,9 +241,10 @@ sub configure {
         'License',
         'MinimumPerl',
         'AutoPrereqs',
-        'MetaJSON',
+        'GitHub::Meta',
         'Repository',
         [ 'Bugtracker' => { web => $self->bugtracker } ],
+        'MetaJSON',
 
         # File munging
         ( $self->surgical
@@ -284,7 +286,7 @@ sub configure {
         } ],
         [ 'Git::Tag' => { tag_format => $self->tag_format } ],
         'Git::Push',
-        [ 'GithubUpdate' => { cpan => 1, p3rl => 1 } ],
+        [ 'GitHub::Update' => { cpan => 0, p3rl => 1 } ],
     );
     $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'IsGd' } ])
         if ($self->twitter and not $self->fake_release);
