@@ -2,6 +2,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Update Github plugins
+    * Remove TestingMania version prerequisite
 
 0.015     2011-04-02
     * Add support for specifying the changelog filename
