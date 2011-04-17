@@ -12,7 +12,7 @@ use warnings;
 =head1 DESCRIPTION
 
 C<Dist::Zilla::PluginBundle::Author::DOHERTY> provides shorthand for
-a L<Dist::Zilla> configuration approximate like:
+a L<Dist::Zilla> configuration approximately like:
 
     [Git::Check]
     [@Filter]
@@ -22,10 +22,7 @@ a L<Dist::Zilla> configuration approximate like:
 
     [AutoPrereqs]
     [MinimumPerl]
-    [Repository]
-    [Bugtracker]
-    :version = 1.102670 ; To set bugtracker
-    web = http://github.com/doherty/%s/issues
+    [Github::Meta]
     [PodWeaver]
     config_plugin = @Author::DOHERTY
     [InstallGuide]
@@ -36,17 +33,18 @@ a L<Dist::Zilla> configuration approximate like:
     [Git::NextVersion]
     [PkgVersion]
     [NextRelease]
-    filename = CHANGES
+    filename = Changes
     format   = %-9v %{yyyy-MM-dd}d
     [CheckChangesHasContent]
-    changelog = CHANGES
+    changelog = Changes
 
-    [Twitter]       ; config in ~/.netrc
+    [Twitter]         ; config in ~/.netrc
     [Github::Update]  ; config in ~/.gitconfig
     [Git::Commit]
     [Git::Tag]
 
     [@TestingMania]
+    changelog = Changes
     [LocalInstall]
 
 =cut
