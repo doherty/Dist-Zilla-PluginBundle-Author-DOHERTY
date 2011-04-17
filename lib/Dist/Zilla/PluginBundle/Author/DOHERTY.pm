@@ -245,6 +245,7 @@ sub configure {
         'Repository',
         [ 'Bugtracker' => { web => $self->bugtracker } ],
         'MetaJSON',
+        'MetaYAML',
 
         # File munging
         ( $self->surgical
