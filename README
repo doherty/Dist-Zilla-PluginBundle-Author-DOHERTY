@@ -40,8 +40,8 @@ DESCRIPTION
         [CheckChangesHasContent]
         changelog = CHANGES
 
-        [Twitter]       ; config in ~/.netrc
-        [GithubUpdate]  ; config in ~/.gitconfig
+        [Twitter]        ; config in ~/.netrc
+        [GitHub::Update] ; config in ~/.gitconfig
         [Git::Commit]
         [Git::Tag]
 
