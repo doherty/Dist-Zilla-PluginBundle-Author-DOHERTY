@@ -128,7 +128,7 @@ to C<L<TestingMania|Dist::Zilla::PluginBundle::TestingMania>>.
 
 =cut
 
-has add_tests => (
+has enable_tests => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
@@ -142,7 +142,7 @@ C<L<TestingMania|Dist::Zilla::PluginBundle::TestingMania>>.
 
 =cut
 
-has skip_tests => (
+has disable_tests => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
@@ -207,7 +207,7 @@ has surgical => (
 
 =item *
 
-C<changelog> is the filename of the changelog, and defaults to CHANGES.
+C<changelog> is the filename of the changelog, and defaults to F<Changes>.
 
 =cut
 
@@ -294,8 +294,8 @@ sub configure {
 
     $self->add_bundle(
         'TestingMania' => {
-            add  => $self->payload->{'add_tests'},
-            skip => $self->payload->{'skip_tests'},
+            enable  => $self->payload->{'enable_tests'},
+            disable => $self->payload->{'disable_tests'},
             changelog => $self->changelog,
         },
     );
