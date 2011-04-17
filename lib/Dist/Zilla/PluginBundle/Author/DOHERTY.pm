@@ -215,7 +215,7 @@ has changelog => (
     is      => 'ro',
     isa     => 'Str',
     lazy    => 1,
-    default => sub { $_[0]->payload->{changelog} || 'CHANGES' },
+    default => sub { $_[0]->payload->{changelog} || 'Changes' },
 );
 
 =back
