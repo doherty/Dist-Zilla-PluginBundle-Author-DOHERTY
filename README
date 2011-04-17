@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.015
+    version 0.016
 
 SYNOPSIS
         # in dist.ini
@@ -41,7 +41,7 @@ DESCRIPTION
         changelog = CHANGES
 
         [Twitter]       ; config in ~/.netrc
-        [GithubUpdate]  ; config in ~/.gitconfig
+        [Github::Update]  ; config in ~/.gitconfig
         [Git::Commit]
         [Git::Tag]
 
@@ -54,10 +54,6 @@ USAGE
 
     *   "fake_release" specifies whether to use "FakeRelease" instead of
         "UploadToCPAN". Defaults to 0.
-
-    *   "bugtracker" specifies a URL for your bug tracker. This is passed to
-        "Bugtracker", so the same interpolation rules apply. Defaults to
-        "http://github.com/doherty/%s/issues".
 
     *   "add_tests" is a comma-separated list of testing plugins to add to
         "TestingMania".
@@ -76,12 +72,15 @@ USAGE
     *   "surgical" says to use Dist::Zilla::Plugin::SurgicalPodWeaver.
 
     *   "changelog" is the filename of the changelog, and defaults to
-        CHANGES.
+        Changes.
 
 SEE ALSO
     "Dist::Zilla"
 
 AVAILABILITY
+    The project homepage is
+    <http://p3rl.org/Dist::Zilla::PluginBundle::Author::DOHERTY>.
+
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
     CPAN site near you, or see
@@ -104,8 +103,8 @@ BUGS AND LIMITATIONS
     No bugs have been reported.
 
     Please report any bugs or feature requests through the web interface at
-    <http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issues
-    >.
+    <https://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issue
+    s>.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

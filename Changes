@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.016     2011-04-17
     * Update Github plugins
     * Remove TestingMania version prerequisite
     * Remove Repository/Bugtracker (covered by Github::Meta)
