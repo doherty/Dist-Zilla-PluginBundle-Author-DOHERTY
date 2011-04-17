@@ -42,7 +42,7 @@ a L<Dist::Zilla> configuration approximate like:
     changelog = CHANGES
 
     [Twitter]       ; config in ~/.netrc
-    [GithubUpdate]  ; config in ~/.gitconfig
+    [Github::Update]  ; config in ~/.gitconfig
     [Git::Commit]
     [Git::Tag]
 
@@ -58,7 +58,6 @@ use Moose::Autobox;
 use namespace::autoclean 0.09;
 
 use Dist::Zilla 4.102341; # dzil authordeps
-use Dist::Zilla::Plugin::Bugtracker            1.102670 qw(); # to set bugtracker in dist.ini
 use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
 use Dist::Zilla::Plugin::CopyMakefilePLFromBuild 0.0017 qw(); # to run during AfterRelease
@@ -75,7 +74,6 @@ use Dist::Zilla::Plugin::MinimumPerl                    qw();
 use Dist::Zilla::Plugin::OurPkgVersion                  qw();
 use Dist::Zilla::Plugin::PodWeaver                      qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
-use Dist::Zilla::Plugin::Repository                0.13 qw(); # v2 Meta spec
 use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
 use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
 use Dist::Zilla::PluginBundle::TestingMania             qw(); # better deps tree & PodLinkTests; ChangesTests
@@ -104,21 +102,6 @@ has fake_release => (
     isa     => 'Bool',
     lazy    => 1,
     default => sub { $_[0]->payload->{fake_release} || 0 },
-);
-
-=item *
-
-C<bugtracker> specifies a URL for your bug tracker. This is passed to
-C<L<Bugtracker|Dist::Zilla::Plugin::Bugtracker>>, so the same interpolation
-rules apply. Defaults to C<http://github.com/doherty/%s/issues>.
-
-=cut
-
-has bugtracker => (
-    is      => 'ro',
-    isa     => 'Str',
-    lazy    => 1,
-    default => sub { $_[0]->payload->{bugtracker} || 'http://github.com/doherty/%s/issues' },
 );
 
 =item *
@@ -242,8 +225,6 @@ sub configure {
         'MinimumPerl',
         'AutoPrereqs',
         'GitHub::Meta',
-        'Repository',
-        [ 'Bugtracker' => { web => $self->bugtracker } ],
         'MetaJSON',
         'MetaYAML',
 
