@@ -78,6 +78,7 @@ use Dist::Zilla::PluginBundle::TestingMania             qw(); # better deps tree
 use Pod::Weaver::PluginBundle::Author::DOHERTY    0.004 qw(); # new name
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
+use WWW::Shorten::Googl                                 qw();
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
@@ -268,7 +269,7 @@ sub configure {
         'Git::Push',
         [ 'GitHub::Update' => { cpan => 0, p3rl => 1 } ],
     );
-    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'IsGd' } ])
+    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'Googl' } ])
         if ($self->twitter and not $self->fake_release);
 
     $self->add_bundle(

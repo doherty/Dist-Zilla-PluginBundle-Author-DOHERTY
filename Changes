@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Use goo.gl for URL shortening
 
 0.016     2011-04-17
     * Update Github plugins
