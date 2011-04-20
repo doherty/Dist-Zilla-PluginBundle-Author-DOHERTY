@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.016
+    version 0.017
 
 SYNOPSIS
         # in dist.ini
@@ -11,7 +11,7 @@ SYNOPSIS
 
 DESCRIPTION
     "Dist::Zilla::PluginBundle::Author::DOHERTY" provides shorthand for a
-    Dist::Zilla configuration approximate like:
+    Dist::Zilla configuration approximately like:
 
         [Git::Check]
         [@Filter]
@@ -21,10 +21,7 @@ DESCRIPTION
 
         [AutoPrereqs]
         [MinimumPerl]
-        [Repository]
-        [Bugtracker]
-        :version = 1.102670 ; To set bugtracker
-        web = http://github.com/doherty/%s/issues
+        [Github::Meta]
         [PodWeaver]
         config_plugin = @Author::DOHERTY
         [InstallGuide]
@@ -35,17 +32,18 @@ DESCRIPTION
         [Git::NextVersion]
         [PkgVersion]
         [NextRelease]
-        filename = CHANGES
+        filename = Changes
         format   = %-9v %{yyyy-MM-dd}d
         [CheckChangesHasContent]
-        changelog = CHANGES
+        changelog = Changes
 
-        [Twitter]       ; config in ~/.netrc
+        [Twitter]         ; config in ~/.netrc
         [Github::Update]  ; config in ~/.gitconfig
         [Git::Commit]
         [Git::Tag]
 
         [@TestingMania]
+        changelog = Changes
         [LocalInstall]
 
 USAGE
