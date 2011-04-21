@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Bump MinimumPerl version to scan only perl files
 
 0.017     2011-04-19
     * Use goo.gl for URL shortening

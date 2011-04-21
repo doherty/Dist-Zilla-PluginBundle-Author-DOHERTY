@@ -68,7 +68,7 @@ use Dist::Zilla::Plugin::Git::NextVersion               qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
-use Dist::Zilla::Plugin::MinimumPerl                    qw();
+use Dist::Zilla::Plugin::MinimumPerl              1.003 qw(); # to ignore non-perl files
 use Dist::Zilla::Plugin::OurPkgVersion                  qw();
 use Dist::Zilla::Plugin::PodWeaver                      qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
