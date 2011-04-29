@@ -58,6 +58,7 @@ use namespace::autoclean 0.09;
 use Dist::Zilla 4.102341; # dzil authordeps
 use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
 use Dist::Zilla::Plugin::CheckExtraTests                qw();
+use Dist::Zilla::Plugin::Clean                          qw();
 use Dist::Zilla::Plugin::CopyMakefilePLFromBuild 0.0017 qw(); # to run during AfterRelease
 use Dist::Zilla::Plugin::CopyReadmeFromBuild     0.0017 qw(); # to run during AfterRelease
 use Dist::Zilla::Plugin::Git::Check                     qw();
@@ -282,6 +283,7 @@ sub configure {
 
     $self->add_plugins(
         'InstallRelease',
+        'Clean',
     );
 }
 
