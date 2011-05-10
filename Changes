@@ -3,6 +3,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 {{$NEXT}}
     * Bump MinimumPerl version to scan only perl files
     * Add Clean plugin to run clean automatically after release
+    * Renamed no_twitter to twitter
 
 0.017     2011-04-19
     * Use goo.gl for URL shortening
