@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.017
+    version 0.018
 
 SYNOPSIS
         # in dist.ini
@@ -11,66 +11,48 @@ SYNOPSIS
 
 DESCRIPTION
     "Dist::Zilla::PluginBundle::Author::DOHERTY" provides shorthand for a
-    Dist::Zilla configuration approximately like:
-
-        [Git::Check]
-        [@Filter]
-        -bundle = @Basic    ; Equivalent to using [@Basic]
-        -remove = Readme    ; For use with [CopyReadmeFromBuild]
-        -remove = ExtraTests
-
-        [AutoPrereqs]
-        [MinimumPerl]
-        [Github::Meta]
-        [PodWeaver]
-        config_plugin = @Author::DOHERTY
-        [InstallGuide]
-        [ReadmeFromPod]
-        [CopyReadmeFromBuild]
-        [CopyMakefilePLFromBuild]
-
-        [Git::NextVersion]
-        [PkgVersion]
-        [NextRelease]
-        filename = Changes
-        format   = %-9v %{yyyy-MM-dd}d
-        [CheckChangesHasContent]
-        changelog = Changes
-
-        [Twitter]         ; config in ~/.netrc
-        [Github::Update]  ; config in ~/.gitconfig
-        [Git::Commit]
-        [Git::Tag]
-
-        [@TestingMania]
-        changelog = Changes
-        [LocalInstall]
+    Dist::Zilla configuration that does what Mike wants.
 
 USAGE
     Just put "[@Author::DOHERTY]" in your dist.ini. You can supply the
     following options:
 
     *   "fake_release" specifies whether to use "FakeRelease" instead of
-        "UploadToCPAN". Defaults to 0.
+        "UploadToCPAN".
+
+        Default is false.
 
     *   "add_tests" is a comma-separated list of testing plugins to add to
         "TestingMania".
 
+        Default is none.
+
     *   "skip_tests" is a comma-separated list of testing plugins to skip in
         "TestingMania".
+
+        Default is none.
 
     *   "tag_format" specifies how a git release tag should be named. This
         is passed to "Git::Tag".
 
+        Default is 'v%v' .
+
     *   "version_regex" specifies a regexp to find the version number part
         of a git release tag. This is passed to "Git::NextVersion".
 
-    *   "no_twitter" says that releases of this module shouldn't be tweeted.
+        Default is '^(?:v|release-)(.+)$'.
+
+    *   "twitter" says whether releases of this module should be tweeted.
+
+        Default is true.
 
     *   "surgical" says to use Dist::Zilla::Plugin::SurgicalPodWeaver.
 
-    *   "changelog" is the filename of the changelog, and defaults to
-        Changes.
+        Default is false.
+
+    *   "changelog" is the filename of the changelog.
+
+        Default is Changes.
 
 SEE ALSO
     "Dist::Zilla"

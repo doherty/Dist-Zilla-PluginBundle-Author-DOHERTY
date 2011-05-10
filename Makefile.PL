@@ -4,7 +4,7 @@ use warnings;
 
 BEGIN { require 5.006; }
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -17,7 +17,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'Dist-Zilla-PluginBundle-Author-DOHERTY',
   'EXE_FILES' => [],
@@ -27,6 +27,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla' => '4.102341',
     'Dist::Zilla::Plugin::CheckChangesHasContent' => '0',
     'Dist::Zilla::Plugin::CheckExtraTests' => '0',
+    'Dist::Zilla::Plugin::Clean' => '0',
     'Dist::Zilla::Plugin::CopyMakefilePLFromBuild' => '0.0017',
     'Dist::Zilla::Plugin::CopyReadmeFromBuild' => '0.0017',
     'Dist::Zilla::Plugin::Git::Check' => '0',
@@ -37,7 +38,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::GitHub::Update' => '0.06',
     'Dist::Zilla::Plugin::InstallGuide' => '0',
     'Dist::Zilla::Plugin::InstallRelease' => '0.006',
-    'Dist::Zilla::Plugin::MinimumPerl' => '0',
+    'Dist::Zilla::Plugin::MinimumPerl' => '1.003',
     'Dist::Zilla::Plugin::OurPkgVersion' => '0',
     'Dist::Zilla::Plugin::PodWeaver' => '0',
     'Dist::Zilla::Plugin::ReadmeFromPod' => '0',
@@ -54,7 +55,7 @@ my %WriteMakefileArgs = (
     'autodie' => '2.00',
     'namespace::autoclean' => '0.09'
   },
-  'VERSION' => '0.017',
+  'VERSION' => '0.018',
   'test' => {
     'TESTS' => 't/*.t'
   }
