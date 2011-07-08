@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.020     2011-07-08
     * Also ship Build.PL
 
 0.019     2011-05-09

@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-BEGIN { require 5.006; }
+use 5.006;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -14,10 +14,12 @@ my %WriteMakefileArgs = (
   'BUILD_REQUIRES' => {
     'File::Find' => '0',
     'File::Temp' => '0',
+    'Module::Build' => '0.3601',
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+    'ExtUtils::MakeMaker' => '6.30',
+    'Module::Build' => '0.3601'
   },
   'DISTNAME' => 'Dist-Zilla-PluginBundle-Author-DOHERTY',
   'EXE_FILES' => [],
@@ -28,8 +30,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::CheckChangesHasContent' => '0',
     'Dist::Zilla::Plugin::CheckExtraTests' => '0',
     'Dist::Zilla::Plugin::Clean' => '0',
-    'Dist::Zilla::Plugin::CopyMakefilePLFromBuild' => '0.0017',
-    'Dist::Zilla::Plugin::CopyReadmeFromBuild' => '0.0017',
+    'Dist::Zilla::Plugin::CopyFilesFromBuild' => '0',
     'Dist::Zilla::Plugin::Git::Check' => '0',
     'Dist::Zilla::Plugin::Git::Commit' => '0',
     'Dist::Zilla::Plugin::Git::NextVersion' => '0',
@@ -55,7 +56,7 @@ my %WriteMakefileArgs = (
     'autodie' => '2.00',
     'namespace::autoclean' => '0.09'
   },
-  'VERSION' => '0.019',
+  'VERSION' => '0.020',
   'test' => {
     'TESTS' => 't/*.t'
   }
