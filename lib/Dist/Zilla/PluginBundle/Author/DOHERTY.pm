@@ -65,14 +65,14 @@ Default is false.
 
 =item *
 
-C<add_tests> is a comma-separated list of testing plugins to add
+C<enable_tests> is a comma-separated list of testing plugins to add
 to C<< L<TestingMania|Dist::Zilla::PluginBundle::TestingMania> >>.
 
 Default is none.
 
 =item *
 
-C<skip_tests> is a comma-separated list of testing plugins to skip in
+C<disable_tests> is a comma-separated list of testing plugins to skip in
 C<< L<TestingMania|Dist::Zilla::PluginBundle::TestingMania> >>.
 
 Default is none.

@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Fix documentation for enabling/disabling TestingMania tests
 
 0.020     2011-07-08
     * Also ship Build.PL
