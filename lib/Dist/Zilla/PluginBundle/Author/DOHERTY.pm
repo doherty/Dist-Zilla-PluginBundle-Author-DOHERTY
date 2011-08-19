@@ -29,8 +29,7 @@ use Dist::Zilla::Plugin::Clean                          qw();
 use Dist::Zilla::Plugin::CopyFilesFromBuild             qw(); # to copy specified files
 use Dist::Zilla::Plugin::Git::Check                     qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
-use Dist::Zilla::Plugin::GitHub::Update            0.06 qw(); # Support for p3rl.org; new name
-use Dist::Zilla::Plugin::GitHub::Meta              0.06 qw(); # new name
+use Dist::Zilla::Plugin::GitHub                    0.13 qw(); # Support for pointing to parent forks
 use Dist::Zilla::Plugin::Git::NextVersion               qw();
 use Dist::Zilla::Plugin::Git::Tag                       qw();
 use Dist::Zilla::Plugin::InstallGuide                   qw();

@@ -2,6 +2,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Fix documentation for enabling/disabling TestingMania tests
+    * Require newer Dist::Zilla::Plugin::GitHub, which points metadata to parent forks on GH
 
 0.020     2011-07-08
     * Also ship Build.PL
