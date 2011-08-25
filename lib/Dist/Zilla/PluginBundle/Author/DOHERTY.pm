@@ -31,7 +31,7 @@ use Dist::Zilla::Plugin::Git::Check                     qw();
 use Dist::Zilla::Plugin::Git::Commit                    qw();
 use Dist::Zilla::Plugin::GitHub                    0.13 qw(); # Support for pointing to parent forks
 use Dist::Zilla::Plugin::Git::NextVersion               qw();
-use Dist::Zilla::Plugin::Git::Tag                       qw();
+use Dist::Zilla::Plugin::Git::Tag              1.112380 qw(); # Support for signed tags
 use Dist::Zilla::Plugin::InstallGuide                   qw();
 use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
 use Dist::Zilla::Plugin::MinimumPerl              1.003 qw(); # to ignore non-perl files
@@ -81,7 +81,7 @@ Default is none.
 C<tag_format> specifies how a git release tag should be named. This is
 passed to C<< L<Git::Tag|Dist::Zilla::Plugin::Git::Tag> >>.
 
-Default is C< 'v%v' >.
+Default is C< %v%t >.
 
 =item *
 
@@ -89,7 +89,7 @@ C<version_regex> specifies a regexp to find the version number part of
 a git release tag. This is passed to
 C<< L<Git::NextVersion|Dist::Zilla::Plugin::Git::NextVersion> >>.
 
-Default is C<< '^(?:v|release-)(.+)$' >>.
+Default is C<< ^(v.+)$ >>.
 
 =item *
 
@@ -120,8 +120,8 @@ sub configure {
         my $defaults = {
             changelog       => 'Changes',
             twitter         => 1,
-            version_regexp  => '^(?:v|release-)(.+)$',
-            tag_format      => 'v%v',
+            version_regexp  => '^(v?.+)$',
+            tag_format      => '%v%t',
             fake_release    => 0,
             surgical        => 0,
         };
@@ -198,22 +198,26 @@ sub configure {
             allow_dirty => [$conf->{changelog}, @dzil_files_for_scm],
             commit_msg => 'Released %v%t',
         } ],
-        [ 'Git::Tag' => { tag_format => $conf->{tag_format} } ],
+        [ 'Git::Tag' => {
+            tag_format  => $conf->{tag_format},
+            tag_message => "Released $conf->{tag_format}",
+            signed      => 1,
+        } ],
         'Git::Push',
         [ 'GitHub::Update' => { cpan => 0, metacpan => 1 } ],
     );
     $self->add_plugins([ 'Twitter' => {
             hash_tags => '#perl #cpan',
             url_shortener => 'Googl',
-            tweet_url => 'https://metacpan.org/release/{{$DIST}}',
+            tweet_url => 'https://metacpan.org/release/{{$AUTHOR_UC}}/{{$DIST}}-{{$VERSION}}/',
         } ]) if ($conf->{twitter} and not $conf->{fake_release});
 
     $self->add_bundle(
         'TestingMania' => {
-            enable      => $conf->{enable},
-            disable     => $conf->{disable},
-            changelog   => $conf->{changelog},
-            critic_config => $conf->{critic_config},
+            enable          => $conf->{enable},
+            disable         => $conf->{disable},
+            changelog       => $conf->{changelog},
+            critic_config   => $conf->{critic_config},
         }
      );
 

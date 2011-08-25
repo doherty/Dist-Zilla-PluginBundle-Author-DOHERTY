@@ -2,6 +2,8 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Also make GH URL point at metacpan
+    * Make signed tags
+    * Include -TRIAL on trial releases
 
 0.021     2011-08-24
     * Fix documentation for enabling/disabling TestingMania tests
