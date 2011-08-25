@@ -200,7 +200,7 @@ sub configure {
         } ],
         [ 'Git::Tag' => { tag_format => $conf->{tag_format} } ],
         'Git::Push',
-        [ 'GitHub::Update' => { cpan => 0, p3rl => 1 } ],
+        [ 'GitHub::Update' => { cpan => 0, metacpan => 1 } ],
     );
     $self->add_plugins([ 'Twitter' => {
             hash_tags => '#perl #cpan',
