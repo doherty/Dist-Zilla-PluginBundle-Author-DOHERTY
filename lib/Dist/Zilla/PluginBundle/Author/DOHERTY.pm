@@ -202,8 +202,11 @@ sub configure {
         'Git::Push',
         [ 'GitHub::Update' => { cpan => 0, p3rl => 1 } ],
     );
-    $self->add_plugins([ 'Twitter' => { hash_tags => '#perl #cpan', url_shortener => 'Googl' } ])
-        if ($conf->{twitter} and not $conf->{fake_release});
+    $self->add_plugins([ 'Twitter' => {
+            hash_tags => '#perl #cpan',
+            url_shortener => 'Googl',
+            tweet_url => 'https://metacpan.org/release/{{$DIST}}',
+        } ]) if ($conf->{twitter} and not $conf->{fake_release});
 
     $self->add_bundle(
         'TestingMania' => {
