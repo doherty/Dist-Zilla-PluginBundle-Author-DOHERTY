@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.020
+    version 0.021
 
 SYNOPSIS
         # in dist.ini
@@ -22,13 +22,13 @@ USAGE
 
         Default is false.
 
-    *   "add_tests" is a comma-separated list of testing plugins to add to
-        "TestingMania".
+    *   "enable_tests" is a comma-separated list of testing plugins to add
+        to "TestingMania".
 
         Default is none.
 
-    *   "skip_tests" is a comma-separated list of testing plugins to skip in
-        "TestingMania".
+    *   "disable_tests" is a comma-separated list of testing plugins to skip
+        in "TestingMania".
 
         Default is none.
 

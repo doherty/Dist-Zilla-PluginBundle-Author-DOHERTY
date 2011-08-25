@@ -21,7 +21,7 @@ my %module_build_args = (
     'Mike Doherty <doherty@cpan.org>'
   ],
   'dist_name' => 'Dist-Zilla-PluginBundle-Author-DOHERTY',
-  'dist_version' => '0.020',
+  'dist_version' => '0.021',
   'license' => 'perl',
   'module_name' => 'Dist::Zilla::PluginBundle::Author::DOHERTY',
   'recommends' => {},
@@ -36,8 +36,7 @@ my %module_build_args = (
     'Dist::Zilla::Plugin::Git::Commit' => '0',
     'Dist::Zilla::Plugin::Git::NextVersion' => '0',
     'Dist::Zilla::Plugin::Git::Tag' => '0',
-    'Dist::Zilla::Plugin::GitHub::Meta' => '0.06',
-    'Dist::Zilla::Plugin::GitHub::Update' => '0.06',
+    'Dist::Zilla::Plugin::GitHub' => '0.13',
     'Dist::Zilla::Plugin::InstallGuide' => '0',
     'Dist::Zilla::Plugin::InstallRelease' => '0.006',
     'Dist::Zilla::Plugin::MinimumPerl' => '1.003',

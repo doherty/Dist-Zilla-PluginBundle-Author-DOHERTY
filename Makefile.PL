@@ -35,8 +35,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Plugin::Git::Commit' => '0',
     'Dist::Zilla::Plugin::Git::NextVersion' => '0',
     'Dist::Zilla::Plugin::Git::Tag' => '0',
-    'Dist::Zilla::Plugin::GitHub::Meta' => '0.06',
-    'Dist::Zilla::Plugin::GitHub::Update' => '0.06',
+    'Dist::Zilla::Plugin::GitHub' => '0.13',
     'Dist::Zilla::Plugin::InstallGuide' => '0',
     'Dist::Zilla::Plugin::InstallRelease' => '0.006',
     'Dist::Zilla::Plugin::MinimumPerl' => '1.003',
@@ -56,7 +55,7 @@ my %WriteMakefileArgs = (
     'autodie' => '2.00',
     'namespace::autoclean' => '0.09'
   },
-  'VERSION' => '0.020',
+  'VERSION' => '0.021',
   'test' => {
     'TESTS' => 't/*.t'
   }
