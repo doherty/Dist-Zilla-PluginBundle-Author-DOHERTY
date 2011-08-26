@@ -85,7 +85,7 @@ Default is C< %v%t >.
 
 =item *
 
-C<version_regex> specifies a regexp to find the version number part of
+C<version_regexp> specifies a regexp to find the version number part of
 a git release tag. This is passed to
 C<< L<Git::NextVersion|Dist::Zilla::Plugin::Git::NextVersion> >>.
 
@@ -109,6 +109,12 @@ C<changelog> is the filename of the changelog.
 
 Default is F<Changes>.
 
+=item *
+
+C<push_to> is the git remote to push to; can be specified multiple times.
+
+Default is C<origin>.
+
 =back
 
 =cut
@@ -124,6 +130,7 @@ sub configure {
             tag_format      => '%v%t',
             fake_release    => 0,
             surgical        => 0,
+            push_to         => 'origin',
         };
         my $config = $self->config_slice(
             'version_regexp',
@@ -133,6 +140,7 @@ sub configure {
             'twitter',
             'surgical',
             'critic_config',
+            'push_to',
             { enable_tests  => 'enable'  },
             { disable_tests => 'disable' },
         );
@@ -203,8 +211,8 @@ sub configure {
             tag_message => "Released $conf->{tag_format}",
             signed      => 1,
         } ],
-        'Git::Push',
-        [ 'GitHub::Update' => { cpan => 0, metacpan => 1 } ],
+        [ 'Git::Push' => { push_to => $conf->{push_to} } ],
+        [ 'GitHub::Update' => { metacpan => 1 } ],
     );
     $self->add_plugins([ 'Twitter' => {
             hash_tags => '#perl #cpan',
