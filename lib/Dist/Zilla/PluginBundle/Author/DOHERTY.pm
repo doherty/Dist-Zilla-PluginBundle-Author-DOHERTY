@@ -155,7 +155,7 @@ sub configure {
 
         # Gather & prune
         'GatherDir',
-        [ 'PruneFiles' => { filenames => \@dzil_files_for_scm } ], # Required by CopyFilesFromBuild
+        [ 'PruneFiles' => { filenames => ['dist.ini', @dzil_files_for_scm] } ], # Required by CopyFilesFromBuild
         'PruneCruft',
         'ManifestSkip',
 
