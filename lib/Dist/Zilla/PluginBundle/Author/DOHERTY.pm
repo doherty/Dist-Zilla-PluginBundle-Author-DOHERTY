@@ -167,6 +167,7 @@ sub configure {
         'GitHub::Meta',
         'MetaJSON',
         'MetaYAML',
+        [ 'MetaNoIndex' => { dir => [qw(corpus)] } ],
 
         # File munging
         ( $conf->{surgical}
