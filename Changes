@@ -1,8 +1,6 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
-
-v0.22     2011-08-27
     * Also make GH URL point at metacpan
     * Make signed tags
     * Include -TRIAL on trial releases
