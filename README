@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version v0.22
+    version v0.23
 
 SYNOPSIS
         # in dist.ini
@@ -64,7 +64,7 @@ SEE ALSO
 
 AVAILABILITY
     The project homepage is
-    <http://p3rl.org/Dist::Zilla::PluginBundle::Author::DOHERTY>.
+    <http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/>.
 
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
