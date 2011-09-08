@@ -127,7 +127,7 @@ sub configure {
             changelog       => 'Changes',
             twitter         => 1,
             version_regexp  => '^(v?.+)$',
-            tag_format      => '%v%t',
+            tag_format      => 'v%v%t',
             fake_release    => 0,
             surgical        => 0,
             push_to         => 'origin',
@@ -155,7 +155,7 @@ sub configure {
 
         # Gather & prune
         'GatherDir',
-        [ 'PruneFiles' => { filenames => ['dist.ini', @dzil_files_for_scm] } ], # Required by CopyFilesFromBuild
+        [ 'PruneFiles' => { filenames => [@dzil_files_for_scm] } ], # Required by CopyFilesFromBuild
         'PruneCruft',
         'ManifestSkip',
 
