@@ -40,7 +40,7 @@ use Dist::Zilla::Plugin::PodWeaver                      qw();
 use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
 use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
 use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
-use Dist::Zilla::PluginBundle::TestingMania       0.009 qw(); # better deps tree & PodLinkTests; ChangesTests
+use Dist::Zilla::PluginBundle::TestingMania             qw(); # No version prereq for easier testing
 use Pod::Weaver::PluginBundle::Author::DOHERTY    0.004 qw(); # new name
 use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
 use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
