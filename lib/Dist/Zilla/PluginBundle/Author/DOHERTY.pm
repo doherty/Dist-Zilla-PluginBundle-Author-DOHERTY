@@ -126,7 +126,7 @@ sub configure {
         my $defaults = {
             changelog       => 'Changes',
             twitter         => 1,
-            version_regexp  => '^(v?.+)$',
+            version_regexp  => '^v?(.+)$',
             tag_format      => 'v%v%t',
             fake_release    => 0,
             surgical        => 0,
