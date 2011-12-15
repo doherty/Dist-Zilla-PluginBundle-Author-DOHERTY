@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.24      2011-12-15
     * Don't include dist.ini in the dist
     * Don't index corpus/
     * Don't include v in the version number
