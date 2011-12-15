@@ -21,31 +21,7 @@ use autodie 2.00;
 use Moose 0.99;
 use Moose::Autobox;
 use namespace::autoclean 0.09;
-
 use Dist::Zilla 4.102341; # dzil authordeps
-use Dist::Zilla::Plugin::CheckChangesHasContent         qw();
-use Dist::Zilla::Plugin::CheckExtraTests                qw();
-use Dist::Zilla::Plugin::Clean                          qw();
-use Dist::Zilla::Plugin::CopyFilesFromBuild             qw(); # to copy specified files
-use Dist::Zilla::Plugin::Git::Check                     qw();
-use Dist::Zilla::Plugin::Git::Commit                    qw();
-use Dist::Zilla::Plugin::GitHub                    0.13 qw(); # Support for pointing to parent forks
-use Dist::Zilla::Plugin::Git::NextVersion               qw();
-use Dist::Zilla::Plugin::Git::Tag              1.112380 qw(); # Support for signed tags
-use Dist::Zilla::Plugin::InstallGuide                   qw();
-use Dist::Zilla::Plugin::InstallRelease           0.006 qw(); # to detect failed installs
-use Dist::Zilla::Plugin::MinimumPerl              1.003 qw(); # to ignore non-perl files
-use Dist::Zilla::Plugin::OurPkgVersion                  qw();
-use Dist::Zilla::Plugin::PodWeaver                      qw();
-use Dist::Zilla::Plugin::ReadmeFromPod                  qw();
-use Dist::Zilla::Plugin::SurgicalPodWeaver       0.0015 qw(); # to avoid circular dependencies
-use Dist::Zilla::Plugin::Twitter                  0.010 qw(); # Support for choosing WWW::Shorten::$site via WWW::Shorten::Simple
-use Dist::Zilla::PluginBundle::TestingMania             qw(); # No version prereq for easier testing
-use Pod::Weaver::PluginBundle::Author::DOHERTY    0.004 qw(); # new name
-use Pod::Weaver::Section::BugsAndLimitations   1.102670 qw(); # to read from D::Z::P::Bugtracker
-use WWW::Shorten::IsGd                                  qw(); # Shorten with WWW::Shorten::IsGd
-use WWW::Shorten::Googl                                 qw();
-
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 =head1 USAGE
