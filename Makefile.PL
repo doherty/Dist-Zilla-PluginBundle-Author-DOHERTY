@@ -48,7 +48,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => "0.99",
     "Moose::Autobox" => 0,
-    "Pod::Weaver::PluginBundle::Author::DOHERTY" => "0.004",
+    "Pod::Weaver::PluginBundle::Author::DOHERTY" => "0.006",
     "Pod::Weaver::Section::BugsAndLimitations" => "1.102670",
     "WWW::Shorten::Googl" => 0,
     "autodie" => "2.00",
@@ -56,7 +56,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.24",
+  "VERSION" => "0.25",
   "test" => {
     "TESTS" => "t/*.t"
   }

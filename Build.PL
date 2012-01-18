@@ -21,7 +21,7 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
-  "dist_version" => "0.24",
+  "dist_version" => "0.25",
   "license" => "perl",
   "module_name" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
   "recommends" => {},
@@ -49,7 +49,7 @@ my %module_build_args = (
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Moose" => "0.99",
     "Moose::Autobox" => 0,
-    "Pod::Weaver::PluginBundle::Author::DOHERTY" => "0.004",
+    "Pod::Weaver::PluginBundle::Author::DOHERTY" => "0.006",
     "Pod::Weaver::Section::BugsAndLimitations" => "1.102670",
     "WWW::Shorten::Googl" => 0,
     "autodie" => "2.00",
