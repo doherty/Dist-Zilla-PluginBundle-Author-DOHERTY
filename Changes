@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Bump version prereq for my Pod Weaver pluginbundle - bugfixes
 
 0.24      2011-12-15
     * Don't include dist.ini in the dist
