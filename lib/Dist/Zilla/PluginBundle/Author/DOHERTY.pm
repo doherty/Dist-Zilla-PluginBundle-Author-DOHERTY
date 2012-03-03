@@ -122,7 +122,7 @@ sub configure {
         );
         $defaults->merge($config);
     };
-    my @dzil_files_for_scm = qw(Makefile.PL Build.PL README);
+    my @dzil_files_for_scm = qw(Makefile.PL Build.PL README README.mkdn);
 
     $self->add_plugins(
         # Version number
@@ -137,6 +137,7 @@ sub configure {
 
         # Generate dist files & metadata
         'ReadmeFromPod',
+        'ReadmeMarkdownFromPod',
         'License',
         'MinimumPerl',
         'AutoPrereqs',
