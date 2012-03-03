@@ -95,6 +95,8 @@ Default is C<origin>.
 
 =cut
 
+sub mvp_multivalue_args { qw(push_to) }
+
 sub configure {
     my $self = shift;
 
@@ -106,7 +108,7 @@ sub configure {
             tag_format      => 'v%v%t',
             fake_release    => 0,
             surgical        => 0,
-            push_to         => 'origin',
+            push_to         => [qw(origin)],
         };
         my $config = $self->config_slice(
             'version_regexp',
@@ -226,5 +228,7 @@ __PACKAGE__->meta->make_immutable;
 =begin Pod::Coverage
 
 configure
+
+mvp_multivalue_args
 
 =end Pod::Coverage
