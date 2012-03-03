@@ -42,6 +42,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::OurPkgVersion" => 0,
     "Dist::Zilla::Plugin::PodWeaver" => 0,
     "Dist::Zilla::Plugin::ReadmeFromPod" => 0,
+    "Dist::Zilla::Plugin::ReadmeMarkdownFromPod" => 0,
     "Dist::Zilla::Plugin::SurgicalPodWeaver" => "0.0015",
     "Dist::Zilla::Plugin::Twitter" => "0.010",
     "Dist::Zilla::PluginBundle::TestingMania" => 0,
@@ -56,7 +57,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.25",
+  "VERSION" => "0.26",
   "test" => {
     "TESTS" => "t/*.t"
   }

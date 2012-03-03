@@ -67,6 +67,10 @@ Default is `origin`.
 
 `[Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla)`
 
+configure
+
+mvp_multivalue_args
+
 # AVAILABILITY
 
 The project homepage is [http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/](http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/).

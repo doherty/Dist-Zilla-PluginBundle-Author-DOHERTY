@@ -21,7 +21,7 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
-  "dist_version" => "0.25",
+  "dist_version" => "0.26",
   "license" => "perl",
   "module_name" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
   "recommends" => {},
@@ -43,6 +43,7 @@ my %module_build_args = (
     "Dist::Zilla::Plugin::OurPkgVersion" => 0,
     "Dist::Zilla::Plugin::PodWeaver" => 0,
     "Dist::Zilla::Plugin::ReadmeFromPod" => 0,
+    "Dist::Zilla::Plugin::ReadmeMarkdownFromPod" => 0,
     "Dist::Zilla::Plugin::SurgicalPodWeaver" => "0.0015",
     "Dist::Zilla::Plugin::Twitter" => "0.010",
     "Dist::Zilla::PluginBundle::TestingMania" => 0,
