@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Add SchwartzRatio plugin
 
 0.26      2012-03-03
     * Produce README.mkdn

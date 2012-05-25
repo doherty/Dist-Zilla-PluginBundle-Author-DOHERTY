@@ -174,7 +174,10 @@ sub configure {
         'ConfirmRelease',
 
         # Release
-        ( $conf->{fake_release} ? 'FakeRelease' : 'UploadToCPAN' ),
+        ( $conf->{fake_release}
+            ? 'FakeRelease'
+            : ('UploadToCPAN', 'SchwartzRatio')
+        ),
 
         # After release
         [ 'CopyFilesFromBuild' => { copy => \@dzil_files_for_scm } ],
