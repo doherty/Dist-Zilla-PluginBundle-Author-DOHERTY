@@ -91,6 +91,11 @@ C<push_to> is the git remote to push to; can be specified multiple times.
 
 Default is C<origin>.
 
+=item *
+
+C<github> is a boolean specifying whether to use the plugins
+L<Dist::Zilla::Plugin::GitHub::Meta> and L<Dist::Zilla::Plugin::GitHub::Update>.
+
 =back
 
 =cut
@@ -109,6 +114,7 @@ sub configure {
             fake_release    => 0,
             surgical        => 0,
             push_to         => [qw(origin)],
+            github          => 1,
         };
         my $config = $self->config_slice(
             'version_regexp',
@@ -119,6 +125,7 @@ sub configure {
             'surgical',
             'critic_config',
             'push_to',
+            'github',
             { enable_tests  => 'enable'  },
             { disable_tests => 'disable' },
         );
@@ -143,7 +150,7 @@ sub configure {
         'License',
         'MinimumPerl',
         'AutoPrereqs',
-        'GitHub::Meta',
+        ( $conf->{github} ? 'GitHub::Meta' : () ),
         'MetaJSON',
         'MetaYAML',
         [ 'MetaNoIndex' => { dir => [qw(corpus)] } ],
@@ -195,7 +202,7 @@ sub configure {
             signed      => 1,
         } ],
         [ 'Git::Push' => { push_to => $conf->{push_to} } ],
-        [ 'GitHub::Update' => { metacpan => 1 } ],
+        ( $conf->{github} ? [ 'GitHub::Update' => { metacpan => 1 } ] : () ),
     );
     $self->add_plugins([ 'Twitter' => {
             hash_tags => '#perl #cpan',

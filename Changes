@@ -2,6 +2,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Add SchwartzRatio plugin
+    * Allow setting github = 0 to disable GitHub::Meta and GitHub::Update
 
 0.26      2012-03-03
     * Produce README.mkdn
