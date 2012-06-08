@@ -137,6 +137,7 @@ sub configure {
         # Version number
         [ 'Git::NextVersion' => { version_regexp => $conf->{version_regexp} } ],
         'OurPkgVersion',
+        'Git::Describe',
 
         # Gather & prune
         'GatherDir',
