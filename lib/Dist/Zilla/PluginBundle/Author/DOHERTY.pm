@@ -223,7 +223,7 @@ sub configure {
     $self->add_plugins(
         'InstallRelease',
         'Clean',
-    );
+    ) unless $conf->{fake_release};
 }
 
 =head1 SEE ALSO
