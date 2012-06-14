@@ -2,6 +2,9 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
     * Only do post-release stuff if it was a real release
+    * Require @GitHub 0.22
+        * bug related to finding a fork's parent repo
+        * Now uses Config::Identity to get credentials
 
 0.27      2012-05-25
     * Add SchwartzRatio plugin
