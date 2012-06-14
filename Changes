@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.28      2012-06-14
     * Only do post-release stuff if it was a real release
     * Require @GitHub 0.22
         * bug related to finding a fork's parent repo

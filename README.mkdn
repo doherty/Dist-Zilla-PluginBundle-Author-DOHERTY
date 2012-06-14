@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like DOHERTY
 
 # VERSION
 
-version 0.27
+version 0.28
 
 # SYNOPSIS
 
@@ -91,7 +91,7 @@ Mike Doherty <doherty@cpan.org>
 
 # COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2010 by Mike Doherty.
+This software is copyright (c) 2010 by Mike Doherty <doherty@cpan.org>.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
