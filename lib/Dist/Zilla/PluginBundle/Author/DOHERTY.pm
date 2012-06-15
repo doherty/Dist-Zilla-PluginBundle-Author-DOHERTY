@@ -175,7 +175,7 @@ sub configure {
         [ 'CheckChangesHasContent' => { changelog => $conf->{changelog} } ],
         [ 'Git::Check' => {
             changelog => $conf->{changelog},
-            allow_dirty => [$conf->{changelog}, @dzil_files_for_scm],
+            allow_dirty => ['dist.ini', $conf->{changelog}, @dzil_files_for_scm],
         } ],
         'TestRelease',
         'CheckExtraTests',

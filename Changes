@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Adjust the files that can be dirty for Git::Check
 
 0.28      2012-06-14
     * Only do post-release stuff if it was a real release
