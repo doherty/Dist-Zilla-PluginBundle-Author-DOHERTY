@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use 5.006;
+use 5.010;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -18,7 +18,6 @@ my %WriteMakefileArgs = (
     "Test::More" => 0
   },
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => "6.30",
     "Module::Build" => "0.3601"
   },
   "DISTNAME" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
@@ -31,6 +30,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::Clean" => 0,
     "Dist::Zilla::Plugin::CopyFilesFromBuild" => 0,
+    "Dist::Zilla::Plugin::DualBuilders" => 0,
     "Dist::Zilla::Plugin::Git::Check" => 0,
     "Dist::Zilla::Plugin::Git::Commit" => 0,
     "Dist::Zilla::Plugin::Git::Describe" => 0,
@@ -47,19 +47,23 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::SchwartzRatio" => 0,
     "Dist::Zilla::Plugin::SurgicalPodWeaver" => "0.0015",
     "Dist::Zilla::Plugin::Twitter" => "0.010",
+    "Dist::Zilla::Plugin::UploadToGoogleCode" => 0,
     "Dist::Zilla::PluginBundle::TestingMania" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
+    "Getopt::Long" => 0,
+    "List::MoreUtils" => 0,
     "Moose" => "0.99",
     "Moose::Autobox" => 0,
+    "Moose::Util::TypeConstraints" => 0,
     "Pod::Weaver::PluginBundle::Author::DOHERTY" => "0.006",
     "Pod::Weaver::Section::BugsAndLimitations" => "1.102670",
     "WWW::Shorten::Googl" => 0,
-    "autodie" => "2.00",
+    "feature" => 0,
     "namespace::autoclean" => "0.09",
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.29",
+  "VERSION" => "0.30",
   "test" => {
     "TESTS" => "t/*.t"
   }
