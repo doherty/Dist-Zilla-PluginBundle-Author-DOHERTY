@@ -4,6 +4,12 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
     * Add fork_is_authoritative to make GitHub::Meta point
       to your fork instead of the parent repo (ie in the
       case where you are the new maintainer)
+    * Allow releasing to Google Code
+    * Use DualBuilders to make Module::Build and ExtUtils::MakeMaker
+      play nicer together
+    * Totally revamp the internals
+    * Allow --release-to, --fake-release, and --offline flags
+    * Set NO_TEST=1 to skip TestRelease and CheckExtraTests
 
 0.29      2012-06-14
     * Adjust the files that can be dirty for Git::Check
