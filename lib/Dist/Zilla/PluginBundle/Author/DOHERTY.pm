@@ -96,6 +96,15 @@ Default is C<origin>.
 C<github> is a boolean specifying whether to use the plugins
 L<Dist::Zilla::Plugin::GitHub::Meta> and L<Dist::Zilla::Plugin::GitHub::Update>.
 
+=item *
+
+C<fork_is_authoritative> tells L<GitHub::Meta|Dist::Zilla::GitHub::Meta> that
+your fork is authoritative. That means that the repository, issues, etc will
+point to your stuff on github, instead of wherever you forked from. This is
+useful if your repository on Github is a fork, but you have taken over
+maintaining the module, so people should probably send bug reports to you
+instead of the original author, and should fork from your repo, etc.
+
 =back
 
 =cut
@@ -115,6 +124,7 @@ sub configure {
             surgical        => 0,
             push_to         => [qw(origin)],
             github          => 1,
+            fork_is_authoritative => 0,
         };
         my $config = $self->config_slice(
             'version_regexp',
@@ -126,6 +136,7 @@ sub configure {
             'critic_config',
             'push_to',
             'github',
+            'fork_is_authoritative',
             { enable_tests  => 'enable'  },
             { disable_tests => 'disable' },
         );
@@ -151,7 +162,10 @@ sub configure {
         'License',
         'MinimumPerl',
         'AutoPrereqs',
-        ( $conf->{github} ? 'GitHub::Meta' : () ),
+        ( $conf->{github}
+            ? ($conf->{fork_is_authoritative} ? ['GitHub::Meta' => { fork => 0 }] : 'GitHub::Meta')
+            : ()
+        ),
         'MetaJSON',
         'MetaYAML',
         [ 'MetaNoIndex' => { dir => [qw(corpus)] } ],

@@ -1,6 +1,9 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Add fork_is_authoritative to make GitHub::Meta point
+      to your fork instead of the parent repo (ie in the
+      case where you are the new maintainer)
 
 0.29      2012-06-14
     * Adjust the files that can be dirty for Git::Check
