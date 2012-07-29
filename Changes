@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.31      2012-07-29
     * Allow setting is_strict and has_version in Test::Version
 
 0.30      2012-06-16

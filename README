@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.30
+    version 0.31
 
 SYNOPSIS
         # in dist.ini
@@ -100,6 +100,11 @@ USAGE
 
         In the future, there might be an option to scp the tarball
         somewhere.
+
+    *   "has_version" and "strict_version" set options in
+        Dist::Zilla::PluginBundle::TestingMania, which passes them along to
+        Dist::Zilla::Plugin::Test::Version and thus Test::Version. They set
+        "has_version" and "is_strict" respectively.
 
 COMMAND LINE OPTIONS
     "--fake-release"
