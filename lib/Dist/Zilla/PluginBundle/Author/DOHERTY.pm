@@ -260,6 +260,29 @@ tarball sitting there for you to do with as you will.
 
 In the future, there might be an option to scp the tarball somewhere.
 
+
+=item *
+
+C<has_version> and C<strict_version> set options in L<Dist::Zilla::PluginBundle::TestingMania>,
+which passes them along to L<Dist::Zilla::Plugin::Test::Version> and thus
+L<Test::Version>. They set C<has_version> and C<is_strict> respectively.
+
+=cut
+
+has has_version => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{has_version} // 1 },
+);
+
+has strict_version => (
+    is      => 'ro',
+    isa     => 'Bool',
+    lazy    => 1,
+    default => sub { $_[0]->payload->{strict_version} // 0 },
+);
+
 =back
 
 =cut
@@ -464,6 +487,8 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
             enable          => $self->enable_tests,
             disable         => $self->disable_tests,
             changelog       => $self->changelog,
+            has_version     => $self->has_version,
+            strict_version  => $self->strict_version,
             ($self->critic_config ? (critic_config => $self->critic_config) : ()),
         }
      );

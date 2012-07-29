@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Allow setting is_strict and has_version in Test::Version
 
 0.30      2012-06-16
     * Add fork_is_authoritative to make GitHub::Meta point
