@@ -1,6 +1,10 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Require Git::Check 1.122460 - allow_dirty is once again an
+      exact string match, but if your repo_root is not the dzil
+      root, then the paths in allow_dirty are interpreted
+      relative to the dzil root, instead of the repo_root [RT #78898]
 
 0.31      2012-07-29
     * Allow setting is_strict and has_version in Test::Version
