@@ -428,6 +428,8 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
 
     $self->add_plugins(
         # Before release
+        'Git::CheckFor::CorrectBranch',
+        'Git::CheckFor::Fixups',
         [ 'CheckChangesHasContent' => { changelog => $self->changelog } ],
         [ 'Git::Check' => {
             changelog => $self->changelog,
