@@ -446,15 +446,15 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
     else {
         if ( any { $_ =~ m/^local$/i } @{ $self->release_to } ) {
             $self->add_plugins('FakeRelease');
-            say '[@Author::DOHERTY] Releasing locally';
+            say STDERR '[@Author::DOHERTY] Releasing locally';
         }
         if ( any { $_ =~ m/^(?:CPAN|PAUSE)$/i } @{ $self->release_to } ) {
             $self->add_plugins('UploadToCPAN', 'SchwartzRatio');
-            say '[@Author::DOHERTY] Releasing to CPAN';
+            say STDERR '[@Author::DOHERTY] Releasing to CPAN';
         }
         if ( any { $_ =~ m/^Google(?:Code)?$/i } @{ $self->release_to } ) {
             $self->add_plugins(['UploadToGoogleCode' => { project => $self->googlecode_project }]);
-            say '[@Author::DOHERTY] Releasing to Google Code';
+            say STDERR '[@Author::DOHERTY] Releasing to Google Code';
         }
     }
 
