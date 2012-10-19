@@ -377,7 +377,6 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         # Version number
         [ 'Git::NextVersion' => { version_regexp => $self->version_regexp } ],
         'OurPkgVersion',
-        'Git::Describe',
     );
 
     $self->add_plugins(
