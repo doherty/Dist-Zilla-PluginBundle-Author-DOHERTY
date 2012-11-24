@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Replace makemaker/modulebuild settings with custom_build
 
 0.32      2012-11-24
     * Check that we're on the right branch before releasing

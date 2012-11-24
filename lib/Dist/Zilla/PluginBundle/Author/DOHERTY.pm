@@ -36,30 +36,17 @@ options:
 
 =item *
 
-C<makemaker> specifies whether to generate a standard L<ExtUtils::MakeMaker>
-build tool. Default is true.
+C<custom_build> specifies to use L<Dist::Zilla::Plugin::ModuleBuild::Custom>
+instead of generating boilerplate L<ExtUtils::MakeMaker> and L<Module::Build>
+build tools.
 
 =cut
 
-has makemaker => (
+has custom_build => (
     is => 'rw',
     isa => 'Bool',
     lazy => 1,
-    default => sub { $_[0]->payload->{makemaker} // 1 },
-);
-
-=item *
-
-C<modulebuild> specifies whether to generate a standard L<Module::Build> build
-tool. Default is true.
-
-=cut
-
-has modulebuild => (
-    is => 'rw',
-    isa => 'Bool',
-    lazy => 1,
-    default => sub { $_[0]->payload->{modulebuild} // 1 },
+    default => sub { $_[0]->payload->{custom_build} // 0 },
 );
 
 =item *
@@ -335,7 +322,13 @@ has dzil_files_for_scm => (
     is  => 'ro',
     isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { [qw( Makefile.PL Build.PL README README.mkdn )] },
+    default => sub {
+        my $self = shift;
+        return [
+            (qw/ Build.PL Makefile.PL /)x!$self->custom_build,
+            qw/ README README.mkdn /,
+        ];
+    },
 );
 
 has noindex_dirs => (
@@ -409,12 +402,16 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
 
     $self->add_plugins(
         # Gather & prune
-        'GatherDir',
-        [ 'PruneFiles' => { filenames => $self->dzil_files_for_scm } ], # Required by CopyFilesFromBuild
+        [ 'GatherDir' => {
+            exclude_filename => [
+                @{$self->dzil_files_for_scm},           # Required by CopyFilesFromBuild
+                (qw/ MANIFEST /)x!$self->custom_build,  # Required by CustomBuild
+            ]
+        }],
         'PruneCruft',
         'ManifestSkip',
     );
-    
+
     $self->add_plugins(
         # Generate dist files & metadata
         'ReadmeFromPod',
@@ -443,15 +440,14 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         # Build system
         'ExecDir',
         'ShareDir',
-        ('MakeMaker')x!!$self->makemaker,
-        ('ModuleBuild')x!!$self->modulebuild,
-        ('DualBuilders')x!!($self->makemaker && $self->modulebuild),
+        ( $self->custom_build
+            ? 'ModuleBuild::Custom'
+            : (qw/ MakeMaker ModuleBuild DualBuilders /)
+        ),
     );
 
-    $self->add_plugins(
-        # Manifest stuff must come after generated files
-        'Manifest',
-    );
+    # Manifest stuff must come after generated files
+    $self->add_plugins('Manifest');
 
     $self->add_plugins(
         # Before release

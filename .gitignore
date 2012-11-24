@@ -1,2 +1,5 @@
 Dist-Zilla-PluginBundle-Author-DOHERTY*
 .build
+_build
+MYMETA.*
+Build

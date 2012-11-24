@@ -20,13 +20,13 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
-  "dist_version" => "0.32",
+  "dist_version" => "0.33",
   "license" => "perl",
   "module_name" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
-    "Dist::Zilla" => "4.102341",
+    "Dist::Zilla" => "4.300030",
     "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
     "Dist::Zilla::Plugin::CheckExtraTests" => 0,
     "Dist::Zilla::Plugin::Clean" => 0,

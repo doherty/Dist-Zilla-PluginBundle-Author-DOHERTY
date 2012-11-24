@@ -1,5 +1,3 @@
-
-#!start included /usr/local/share/perl/5.10.1/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
@@ -55,11 +53,5 @@
 
 # Avoid MYMETA files
 ^MYMETA\.
-#!end included /usr/local/share/perl/5.10.1/ExtUtils/MANIFEST.SKIP
 
-
-# Specific to this project
-^dist\.ini$
-^MANIFEST\.SKIP$
-^\.build$
-^weaver\.ini$
+\b.build/

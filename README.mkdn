@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like DOHERTY
 
 # VERSION
 
-version 0.32
+version 0.33
 
 # SYNOPSIS
 
@@ -21,83 +21,82 @@ a [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla) configuration that d
 Just put `[@Author::DOHERTY]` in your `dist.ini`. You can supply the following
 options:
 
-- `makemaker` specifies whether to generate a standard [ExtUtils::MakeMaker](http://search.cpan.org/perldoc?ExtUtils::MakeMaker)
-build tool. Default is true.
-- `modulebuild` specifies whether to generate a standard [Module::Build](http://search.cpan.org/perldoc?Module::Build) build
-tool. Default is true.
+- `custom_build` specifies to use [Dist::Zilla::Plugin::ModuleBuild::Custom](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ModuleBuild::Custom)
+instead of generating boilerplate [ExtUtils::MakeMaker](http://search.cpan.org/perldoc?ExtUtils::MakeMaker) and [Module::Build](http://search.cpan.org/perldoc?Module::Build)
+build tools.
 - `fake_release` specifies whether to use `[FakeRelease](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::FakeRelease)`
 instead of `[UploadToCPAN](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToCPAN)`.
 
-Default is false.
+    Default is false.
 
 - `enable_tests` is a comma-separated list of testing plugins to add
 to `[TestingMania](http://search.cpan.org/perldoc?Dist::Zilla::PluginBundle::TestingMania)`.
 
-Default is none.
+    Default is none.
 
 - `disable_tests` is a comma-separated list of testing plugins to skip in
 `[TestingMania](http://search.cpan.org/perldoc?Dist::Zilla::PluginBundle::TestingMania)`.
 
-Default is none.
+    Default is none.
 
 - `tag_format` specifies how a git release tag should be named. This is
 passed to `[Git::Tag](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Git::Tag)`.
 
-Default is ` %v%t `.
+    Default is ` %v%t `.
 
 - `version_regexp` specifies a regexp to find the version number part of
 a git release tag. This is passed to
 `[Git::NextVersion](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Git::NextVersion)`.
 
-Default is `^(v.+)$`.
+    Default is `^(v.+)$`.
 
 - `twitter` says whether releases of this module should be tweeted.
 
-Default is true.
+    Default is true.
 
 - `surgical` says to use [Dist::Zilla::Plugin::SurgicalPodWeaver](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::SurgicalPodWeaver).
 
-Default is false.
+    Default is false.
 
 - `changelog` is the filename of the changelog.
 
-Default is `Changes`.
+    Default is `Changes`.
 
 - `push_to` is the git remote to push to; can be specified multiple times.
 
-Default is `origin`.
+    Default is `origin`.
 
-    - `github` is a boolean specifying whether to use the plugins
-    [Dist::Zilla::Plugin::GitHub::Meta](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Meta) and [Dist::Zilla::Plugin::GitHub::Update](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Update).
-    - `critic_config` is a filename to pass through to [Dist::Zilla::Plugin::Test::Perl::Critic](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::Perl::Critic).
-    - `googlecode_project` tells [UploadToGoogleCode](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToGoogleCode)
-    which project to upload to. This is required if you want to upload your release
-    to Google Code.
-    - `fork_is_authoritative` tells [GitHub::Meta](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Meta)
-    that your fork is authoritative. That means that the repository, issues, etc
-    will point to your stuff on github, instead of wherever you forked from. This
-    is useful if your repository on Github is a fork, but you have taken over
-    maintaining the module, so people should probably send bug reports to you
-    instead of the original author, and should fork from your repo, etc.
-    - `release_to` is a string that specifies where to send the release. Valid release
-    targets are:
+- `github` is a boolean specifying whether to use the plugins
+[Dist::Zilla::Plugin::GitHub::Meta](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Meta) and [Dist::Zilla::Plugin::GitHub::Update](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Update).
+- `critic_config` is a filename to pass through to [Dist::Zilla::Plugin::Test::Perl::Critic](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::Perl::Critic).
+- `googlecode_project` tells [UploadToGoogleCode](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToGoogleCode)
+which project to upload to. This is required if you want to upload your release
+to Google Code.
+- `fork_is_authoritative` tells [GitHub::Meta](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::GitHub::Meta)
+that your fork is authoritative. That means that the repository, issues, etc
+will point to your stuff on github, instead of wherever you forked from. This
+is useful if your repository on Github is a fork, but you have taken over
+maintaining the module, so people should probably send bug reports to you
+instead of the original author, and should fork from your repo, etc.
+- `release_to` is a string that specifies where to send the release. Valid release
+targets are:
     - PAUSE (or CPAN)
 
-    We'll use [UploadToPAUSE](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToCPAN) to do the release,
-    and clean up afterwards. This is the default
+        We'll use [UploadToPAUSE](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToCPAN) to do the release,
+        and clean up afterwards. This is the default
 
     - GoogleCode
 
-    Well use [UploadToGoogleCode](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToGoogleCode) to do the
-    release, and clean up afterwards. Make sure you set `googlecode_project`
+        Well use [UploadToGoogleCode](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToGoogleCode) to do the
+        release, and clean up afterwards. Make sure you set `googlecode_project`
 
     - local
 
-    We will do all the releasey things like tagging and pushing and whatnot, but
-    we won't do any releasing things, and we won't clean up. This leaves the release
-    tarball sitting there for you to do with as you will.
+        We will do all the releasey things like tagging and pushing and whatnot, but
+        we won't do any releasing things, and we won't clean up. This leaves the release
+        tarball sitting there for you to do with as you will.
 
-In the future, there might be an option to scp the tarball somewhere.
+    In the future, there might be an option to scp the tarball somewhere.
 
 - `has_version` and `strict_version` set options in [Dist::Zilla::PluginBundle::TestingMania](http://search.cpan.org/perldoc?Dist::Zilla::PluginBundle::TestingMania),
 which passes them along to [Dist::Zilla::Plugin::Test::Version](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::Version) and thus
@@ -107,24 +106,24 @@ which passes them along to [Dist::Zilla::Plugin::Test::Version](http://search.cp
 
 - `--fake-release`
 
-Do a fake release.
+    Do a fake release.
 
 - `--release-to`
 
-Specify release targets - can be specified multiple times.
+    Specify release targets - can be specified multiple times.
 
 - `--offline`
 
-Don't do things that need a network connection: sets `github` and `twitter`
-to false; sets `push_to` to an empty array ref (ie: don't push anywhere);
-and sets `release_to` to local.
+    Don't do things that need a network connection: sets `github` and `twitter`
+    to false; sets `push_to` to an empty array ref (ie: don't push anywhere);
+    and sets `release_to` to local.
 
 # ENVIRONMENT
 
 - `NO_TEST`
 
-If true, doesn't add [TestRelease](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::TestRelease) or
-[CheckExtraTests](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::CheckExtraTests).
+    If true, doesn't add [TestRelease](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::TestRelease) or
+    [CheckExtraTests](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::CheckExtraTests).
 
 # SEE ALSO
 
