@@ -36,6 +36,34 @@ options:
 
 =item *
 
+C<makemaker> specifies whether to generate a standard L<ExtUtils::MakeMaker>
+build tool. Default is true.
+
+=cut
+
+has makemaker => (
+    is => 'rw',
+    isa => 'Bool',
+    lazy => 1,
+    default => sub { $_[0]->payload->{makemaker} // 1 },
+);
+
+=item *
+
+C<modulebuild> specifies whether to generate a standard L<Module::Build> build
+tool. Default is true.
+
+=cut
+
+has modulebuild => (
+    is => 'rw',
+    isa => 'Bool',
+    lazy => 1,
+    default => sub { $_[0]->payload->{modulebuild} // 1 },
+);
+
+=item *
+
 C<fake_release> specifies whether to use C<L<FakeRelease|Dist::Zilla::Plugin::FakeRelease>>
 instead of C<< L<UploadToCPAN|Dist::Zilla::Plugin::UploadToCPAN> >>.
 
@@ -47,7 +75,7 @@ has fake_release => (
     is  => 'rw',
     isa => 'Bool',
     lazy => 1,
-    default => sub { $_[0]->payload->{fake_release} || 0 },
+    default => sub { $_[0]->payload->{fake_release} // 0 },
 );
 
 =item *
@@ -63,7 +91,7 @@ has enable_tests => (
     is => 'ro',
     isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { defined $_[0]->payload->{enable_tests} || [] },
+    default => sub { $_[0]->payload->{enable_tests} // [] },
 );
 
 =item *
@@ -79,7 +107,7 @@ has disable_tests => (
     is => 'ro',
     isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { $_[0]->payload->{disable_tests} || [] },
+    default => sub { $_[0]->payload->{disable_tests} // [] },
 );
 
 =item *
@@ -95,7 +123,7 @@ has tag_format => (
     is => 'ro',
     isa => 'Str',
     lazy => 1,
-    default => sub { $_[0]->payload->{tag_format} || 'v%v%t' },
+    default => sub { $_[0]->payload->{tag_format} // 'v%v%t' },
 );
 
 =item *
@@ -112,7 +140,7 @@ has version_regexp => (
     is => 'ro',
     isa => 'Str',
     lazy => 1,
-    default => sub { $_[0]->payload->{version_regexp} || '^v?([\d.]+)(?:-TRIAL)?$' },
+    default => sub { $_[0]->payload->{version_regexp} // '^v?([\d.]+)(?:-TRIAL)?$' },
 );
 
 =item *
@@ -127,7 +155,7 @@ has twitter => (
     is => 'ro',
     isa => 'Bool',
     lazy => 1,
-    default => sub { defined $_[0]->payload->{twitter} ? $_[0]->payload->{twitter} : 1 },
+    default => sub { $_[0]->payload->{twitter} // 1 },
 );
 
 =item *
@@ -142,7 +170,7 @@ has surgical => (
     is => 'ro',
     isa => 'Bool',
     lazy => 1,
-    default => sub { $_[0]->payload->{surgical} || 0 },
+    default => sub { $_[0]->payload->{surgical} // 0 },
 );
 
 =item *
@@ -157,7 +185,7 @@ has changelog => (
     is  => 'ro',
     isa => 'Str',
     lazy => 1,
-    default => sub { $_[0]->payload->{changelog} || 'Changes' },
+    default => sub { $_[0]->payload->{changelog} // 'Changes' },
 );
 
 =item *
@@ -172,7 +200,7 @@ has push_to => (
     is => 'ro',
     isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { $_[0]->payload->{push_to} || [qw(origin)] },
+    default => sub { $_[0]->payload->{push_to} // [qw(origin)] },
 );
 
 =item *
@@ -186,7 +214,7 @@ has github => (
     is  => 'ro',
     isa => 'Bool',
     lazy => 1,
-    default => sub { defined $_[0]->payload->{github} ? $_[0]->payload->{github} : 1 },
+    default => sub { $_[0]->payload->{github} // 1 },
 );
 
 =item *
@@ -230,7 +258,7 @@ has authoritative_fork => (
     is  => 'ro',
     isa => 'Bool',
     lazy => 1,
-    default => sub { $_[0]->payload->{authoritative_fork} || 0 },
+    default => sub { $_[0]->payload->{authoritative_fork} // 0 },
 );
 
 =item *
@@ -314,7 +342,7 @@ has noindex_dirs => (
     is  => 'ro',
     isa => 'ArrayRef[Str]',
     lazy => 1,
-    default => sub { $_[0]->payload->{noindex_dirs} || [qw(corpus inc examples)] },
+    default => sub { $_[0]->payload->{noindex_dirs} // [qw(corpus inc examples)] },
 );
 
 sub mvp_multivalue_args { qw(push_to release_to disable_tests enable_tests) }
@@ -415,9 +443,9 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         # Build system
         'ExecDir',
         'ShareDir',
-        'MakeMaker',
-        'ModuleBuild',
-        'DualBuilders',
+        ('MakeMaker')x!!$self->makemaker,
+        ('ModuleBuild')x!!$self->modulebuild,
+        ('DualBuilders')x!!($self->makemaker && $self->modulebuild),
     );
 
     $self->add_plugins(

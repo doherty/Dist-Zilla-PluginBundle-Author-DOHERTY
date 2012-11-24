@@ -7,6 +7,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
       exact string match, but if your repo_root is not the dzil
       root, then the paths in allow_dirty are interpreted
       relative to the dzil root, instead of the repo_root [RT #78898]
+    * Permit setting whether to include MB or EUMM tools
 
 0.31      2012-07-29
     * Allow setting is_strict and has_version in Test::Version
