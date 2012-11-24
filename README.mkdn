@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like DOHERTY
 
 # VERSION
 
-version 0.31
+version 0.32
 
 # SYNOPSIS
 
@@ -21,6 +21,10 @@ a [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla) configuration that d
 Just put `[@Author::DOHERTY]` in your `dist.ini`. You can supply the following
 options:
 
+- `makemaker` specifies whether to generate a standard [ExtUtils::MakeMaker](http://search.cpan.org/perldoc?ExtUtils::MakeMaker)
+build tool. Default is true.
+- `modulebuild` specifies whether to generate a standard [Module::Build](http://search.cpan.org/perldoc?Module::Build) build
+tool. Default is true.
 - `fake_release` specifies whether to use `[FakeRelease](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::FakeRelease)`
 instead of `[UploadToCPAN](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::UploadToCPAN)`.
 

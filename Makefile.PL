@@ -31,9 +31,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::Clean" => 0,
     "Dist::Zilla::Plugin::CopyFilesFromBuild" => 0,
     "Dist::Zilla::Plugin::DualBuilders" => 0,
-    "Dist::Zilla::Plugin::Git::Check" => 0,
+    "Dist::Zilla::Plugin::Git::Check" => "1.122460",
+    "Dist::Zilla::Plugin::Git::CheckFor::CorrectBranch" => 0,
+    "Dist::Zilla::Plugin::Git::CheckFor::Fixups" => 0,
     "Dist::Zilla::Plugin::Git::Commit" => 0,
-    "Dist::Zilla::Plugin::Git::Describe" => 0,
     "Dist::Zilla::Plugin::Git::NextVersion" => 0,
     "Dist::Zilla::Plugin::Git::Tag" => "1.112380",
     "Dist::Zilla::Plugin::GitHub" => "0.22",
@@ -63,7 +64,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.31",
+  "VERSION" => "0.32",
   "test" => {
     "TESTS" => "t/*.t"
   }

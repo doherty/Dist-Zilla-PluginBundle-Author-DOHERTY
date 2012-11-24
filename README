@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.31
+    version 0.32
 
 SYNOPSIS
         # in dist.ini
@@ -16,6 +16,12 @@ DESCRIPTION
 USAGE
     Just put "[@Author::DOHERTY]" in your dist.ini. You can supply the
     following options:
+
+    *   "makemaker" specifies whether to generate a standard
+        ExtUtils::MakeMaker build tool. Default is true.
+
+    *   "modulebuild" specifies whether to generate a standard Module::Build
+        build tool. Default is true.
 
     *   "fake_release" specifies whether to use "FakeRelease" instead of
         "UploadToCPAN".
