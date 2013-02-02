@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.33      2013-02-02
     * Replace makemaker/modulebuild settings with custom_build
 
 0.32      2012-11-24
