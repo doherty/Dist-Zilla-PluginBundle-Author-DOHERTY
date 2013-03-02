@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+    * Allow configuring max_target_perl for Test::MinimumVersion
 
 0.33      2013-02-02
     * Replace makemaker/modulebuild settings with custom_build
