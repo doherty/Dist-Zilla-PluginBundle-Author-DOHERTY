@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.33
+    version 0.34
 
 SYNOPSIS
         # in dist.ini
@@ -53,6 +53,13 @@ USAGE
     *   "surgical" says to use Dist::Zilla::Plugin::SurgicalPodWeaver.
 
         Default is false.
+
+    *   "max_target_perl" is the highest minimum version of perl you intend
+        to require. This is passed to
+        Dist::Zilla::Plugin::Test::MinimumVersion, which generates a
+        minimum-version.t test that'll warn you if you accidentally used
+        features from a higher version of perl than you wanted. (Having a
+        lower required version of perl is okay.)
 
     *   "changelog" is the filename of the changelog.
 
