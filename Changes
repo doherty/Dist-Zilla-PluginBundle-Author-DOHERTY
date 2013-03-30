@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.35      2013-03-30
     * Bump Dist::Zilla version requirement for test_requires support
     * Require DZP::App::Command::cover
 
