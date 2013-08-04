@@ -315,6 +315,20 @@ has strict_version => (
     default => sub { $_[0]->payload->{strict_version} // 0 },
 );
 
+=item *
+
+C<sharedir> indicates which directory is your dist's share directory. The
+default is F<share>.
+
+=cut
+
+has sharedir => (
+    is => 'ro',
+    isa => 'Str',
+    lazy => 1,
+    default => sub { $_[0]->payload->{sharedir} },
+);
+
 =back
 
 =cut
@@ -426,6 +440,10 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
                 (qw/ MANIFEST /)x!$self->custom_build,  # Required by CustomBuild
             ]
         }],
+        ( $self->sharedir
+            ? [ 'ShareDir' => { dir => $self->sharedir } ]
+            : 'ShareDir'
+        ),
         'PruneCruft',
         'ManifestSkip',
     );
@@ -457,7 +475,6 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
     $self->add_plugins(
         # Build system
         'ExecDir',
-        'ShareDir',
         ( $self->custom_build
             ? 'ModuleBuild::Custom'
             : (qw/ MakeMaker ModuleBuild DualBuilders /)
