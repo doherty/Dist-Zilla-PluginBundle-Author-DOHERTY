@@ -17,7 +17,7 @@ my %module_build_args = (
     "Mike Doherty <doherty\@cpan.org>"
   ],
   "dist_name" => "Dist-Zilla-PluginBundle-Author-DOHERTY",
-  "dist_version" => "0.35",
+  "dist_version" => "0.36",
   "license" => "perl",
   "module_name" => "Dist::Zilla::PluginBundle::Author::DOHERTY",
   "recommends" => {},
@@ -66,9 +66,9 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "File::Find" => 0,
-    "File::Temp" => 0,
-    "Test::More" => 0
+    "Capture::Tiny" => 0,
+    "Test::More" => "0.88",
+    "blib" => 0
   }
 );
 

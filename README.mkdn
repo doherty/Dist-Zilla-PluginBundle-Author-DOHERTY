@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like DOHERTY
 
 # VERSION
 
-version 0.35
+version 0.36
 
 # SYNOPSIS
 
@@ -106,6 +106,8 @@ targets are:
 - `has_version` and `strict_version` set options in [Dist::Zilla::PluginBundle::TestingMania](http://search.cpan.org/perldoc?Dist::Zilla::PluginBundle::TestingMania),
 which passes them along to [Dist::Zilla::Plugin::Test::Version](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::Version) and thus
 [Test::Version](http://search.cpan.org/perldoc?Test::Version). They set `has_version` and `is_strict` respectively.
+- `sharedir` indicates which directory is your dist's share directory. The
+default is `share`.
 
 # COMMAND LINE OPTIONS
 

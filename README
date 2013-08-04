@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.35
+    version 0.36
 
 SYNOPSIS
         # in dist.ini
@@ -116,6 +116,9 @@ USAGE
         Dist::Zilla::PluginBundle::TestingMania, which passes them along to
         Dist::Zilla::Plugin::Test::Version and thus Test::Version. They set
         "has_version" and "is_strict" respectively.
+
+    *   "sharedir" indicates which directory is your dist's share directory.
+        The default is share.
 
 COMMAND LINE OPTIONS
     "--fake-release"
