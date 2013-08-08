@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::DOHERTY - configure Dist::Zilla like DOHERTY
 
 # VERSION
 
-version 0.36
+version 0.37
 
 # SYNOPSIS
 
