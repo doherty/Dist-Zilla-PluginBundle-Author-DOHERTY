@@ -326,7 +326,7 @@ has sharedir => (
     is => 'ro',
     isa => 'Str',
     lazy => 1,
-    default => sub { $_[0]->payload->{sharedir} },
+    default => sub { $_[0]->payload->{sharedir} // '' },
 );
 
 =back
