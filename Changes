@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+  - Include intallation instructions
 
 0.37      2013-08-07
   - Fix sharedir validation

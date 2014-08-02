@@ -453,6 +453,7 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         'ReadmeFromPod',
         'ReadmeMarkdownFromPod',
         'License',
+        'InstallGuide',
         'MinimumPerl',
         'AutoPrereqs',
         ( $self->github
