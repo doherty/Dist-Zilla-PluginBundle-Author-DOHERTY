@@ -449,6 +449,14 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
     );
 
     $self->add_plugins(
+        # File munging
+        ( $self->surgical
+            ? [ 'SurgicalPodWeaver' => { config_plugin => $self->weaver_config } ]
+            : [ 'PodWeaver'         => { config_plugin => $self->weaver_config } ]
+        ),
+    );
+
+    $self->add_plugins(
         # Generate dist files & metadata
         'ReadmeFromPod',
         'ReadmeMarkdownFromPod',
@@ -463,14 +471,6 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         'MetaJSON',
         'MetaYAML',
         [ 'MetaNoIndex' => { dir => $self->noindex_dirs } ],
-    );
-
-    $self->add_plugins(
-        # File munging
-        ( $self->surgical
-            ? [ 'SurgicalPodWeaver' => { config_plugin => $self->weaver_config } ]
-            : [ 'PodWeaver'         => { config_plugin => $self->weaver_config } ]
-        ),
     );
 
     $self->add_plugins(

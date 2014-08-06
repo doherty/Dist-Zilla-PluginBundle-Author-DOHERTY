@@ -2,6 +2,7 @@ Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
   - Include intallation instructions
+  - Munge POD before converting to README.mkdn
 
 0.37      2013-08-07
   - Fix sharedir validation
