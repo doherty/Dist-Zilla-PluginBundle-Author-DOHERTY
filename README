@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.37
+    version 0.38
 
 SYNOPSIS
         # in dist.ini
@@ -141,15 +141,26 @@ SEE ALSO
     "Dist::Zilla"
 
 AVAILABILITY
+    The project homepage is
+    <http://metacpan.org/release/Dist-Zilla-PluginBundle-Author-DOHERTY/>.
+
     The latest version of this module is available from the Comprehensive
     Perl Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a
     CPAN site near you, or see
     <https://metacpan.org/module/Dist::Zilla::PluginBundle::Author::DOHERTY/
     >.
 
+SOURCE
+    The development version is on github at
+    <http://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY> and
+    may be cloned from
+    <git://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY.git>
+
 BUGS AND LIMITATIONS
     You can make new bug reports, and view existing ones, through the web
-    interface at <http://rt.cpan.org>.
+    interface at
+    <https://github.com/doherty/Dist-Zilla-PluginBundle-Author-DOHERTY/issue
+    s>.
 
 AUTHOR
     Mike Doherty <doherty@cpan.org>

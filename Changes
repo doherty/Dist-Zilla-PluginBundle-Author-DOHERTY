@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.38      2014-08-27
   - Include intallation instructions
   - Munge POD before converting to README.mkdn
   - Bootstrap ourselves
