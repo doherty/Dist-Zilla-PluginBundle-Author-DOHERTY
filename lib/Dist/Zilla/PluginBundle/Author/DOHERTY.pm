@@ -258,11 +258,28 @@ instead of the original author, and should fork from your repo, etc.
 
 =cut
 
-has authoritative_fork => (
+has fork_is_authoritative => (
     is  => 'ro',
     isa => 'Bool',
     lazy => 1,
-    default => sub { $_[0]->payload->{authoritative_fork} // 0 },
+    default => sub { $_[0]->payload->{fork_is_authoritative} // 0 },
+);
+
+=item *
+
+C<github_metadata_remote> tells L<GitHub::Meta|Dist::Zilla::Plugin::GitHub::Meta>
+that this is the Github repository from which to take metadata. This can be freely
+combined with C<fork_is_authoritative> to control whether we "follow the symlink"
+if the repo this points to is a fork. By default, the repo will be extracted from
+the url for the C<origin> remote.
+
+=cut
+
+has github_metadata_remote => (
+    is => 'ro',
+    isa => 'Str',
+    lazy => 1,
+    default => sub { $_[0]->payload->{github_metadata_remote} // 'origin' },
 );
 
 =item *
@@ -456,6 +473,10 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         ),
     );
 
+    my %github_meta_settings;
+    $github_meta_settings{fork} = 0 if $self->fork_is_authoritative;
+    $github_meta_settings{remote} //= $self->github_metadata_remote;
+
     $self->add_plugins(
         # Generate dist files & metadata
         'ReadmeFromPod',
@@ -464,10 +485,7 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         'InstallGuide',
         'MinimumPerl',
         'AutoPrereqs',
-        ( $self->github
-            ? ($self->authoritative_fork ? ['GitHub::Meta' => { fork => 0 }] : 'GitHub::Meta')
-            : ()
-        ),
+        [ 'GitHub::Meta' => \%github_meta_settings ],
         'MetaJSON',
         'MetaYAML',
         [ 'MetaNoIndex' => { dir => $self->noindex_dirs } ],
