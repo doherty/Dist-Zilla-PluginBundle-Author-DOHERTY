@@ -3,7 +3,7 @@ NAME
     DOHERTY
 
 VERSION
-    version 0.38
+    version 0.39
 
 SYNOPSIS
         # in dist.ini
@@ -88,6 +88,12 @@ USAGE
         taken over maintaining the module, so people should probably send
         bug reports to you instead of the original author, and should fork
         from your repo, etc.
+
+    *   "github_metadata_remote" tells GitHub::Meta that this is the Github
+        repository from which to take metadata. This can be freely combined
+        with "fork_is_authoritative" to control whether we "follow the
+        symlink" if the repo this points to is a fork. By default, the repo
+        will be extracted from the url for the "origin" remote.
 
     *   "release_to" is a string that specifies where to send the release.
         Valid release targets are:
