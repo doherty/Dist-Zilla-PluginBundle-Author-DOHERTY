@@ -496,7 +496,7 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         'ExecDir',
         ( $self->custom_build
             ? 'ModuleBuild::Custom'
-            : (qw/ MakeMaker ModuleBuild DualBuilders /)
+            : 'MakeMaker'
         ),
     );
 

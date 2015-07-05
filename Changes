@@ -1,6 +1,7 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+  - switch installer default from [DualBuilders] to [MakeMaker] (GH#8, ether)
 
 0.39      2014-09-08
   - Allow specifying which remote to get metadata from
