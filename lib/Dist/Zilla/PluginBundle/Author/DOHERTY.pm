@@ -234,21 +234,6 @@ has critic_config => (
 
 =item *
 
-C<googlecode_project> tells L<UploadToGoogleCode|Dist::Zilla::Plugin::UploadToGoogleCode>
-which project to upload to. This is required if you want to upload your release
-to Google Code.
-
-=cut
-
-has googlecode_project => (
-    is  => 'ro',
-    isa => 'Str',
-    lazy => 1,
-    default => sub { $_[0]->payload->{googlecode_project} },
-);
-
-=item *
-
 C<fork_is_authoritative> tells L<GitHub::Meta|Dist::Zilla::Plugin::GitHub::Meta>
 that your fork is authoritative. That means that the repository, issues, etc
 will point to your stuff on github, instead of wherever you forked from. This
@@ -293,11 +278,6 @@ targets are:
 
 We'll use L<UploadToPAUSE|Dist::Zilla::Plugin::UploadToCPAN> to do the release,
 and clean up afterwards. This is the default
-
-=item * GoogleCode
-
-Well use L<UploadToGoogleCode|Dist::Zilla::Plugin::UploadToGoogleCode> to do the
-release, and clean up afterwards. Make sure you set C<googlecode_project>
 
 =item * local
 
@@ -350,7 +330,7 @@ has sharedir => (
 
 =cut
 
-enum 'ReleaseTarget', [qw( CPAN PAUSE Google GoogleCode local )];
+enum 'ReleaseTarget', [qw( CPAN PAUSE local )];
 
 has release_to => (
     is  => 'rw',
@@ -528,10 +508,6 @@ L<CheckExtraTests|Dist::Zilla::Plugin::CheckExtraTests>.
         if ( any { $_ =~ m/^(?:CPAN|PAUSE)$/i } @{ $self->release_to } ) {
             $self->add_plugins('UploadToCPAN', 'SchwartzRatio');
             say STDERR '[@Author::DOHERTY] Releasing to CPAN';
-        }
-        if ( any { $_ =~ m/^Google(?:Code)?$/i } @{ $self->release_to } ) {
-            $self->add_plugins(['UploadToGoogleCode' => { project => $self->googlecode_project }]);
-            say STDERR '[@Author::DOHERTY] Releasing to Google Code';
         }
     }
 
