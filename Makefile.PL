@@ -41,7 +41,6 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::SchwartzRatio" => 0,
     "Dist::Zilla::Plugin::SurgicalPodWeaver" => "0.0015",
     "Dist::Zilla::Plugin::Twitter" => "0.010",
-    "Dist::Zilla::Plugin::UploadToGoogleCode" => 0,
     "Dist::Zilla::PluginBundle::TestingMania" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Getopt::Long" => 0,
@@ -63,7 +62,7 @@ my %WriteMakefileArgs = (
     "IPC::Open3" => 0,
     "Test::More" => 0
   },
-  "VERSION" => "0.41",
+  "VERSION" => "0.42",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -95,7 +94,6 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Plugin::SchwartzRatio" => 0,
   "Dist::Zilla::Plugin::SurgicalPodWeaver" => "0.0015",
   "Dist::Zilla::Plugin::Twitter" => "0.010",
-  "Dist::Zilla::Plugin::UploadToGoogleCode" => 0,
   "Dist::Zilla::PluginBundle::TestingMania" => 0,
   "Dist::Zilla::Role::PluginBundle::Easy" => 0,
   "File::Spec" => 0,

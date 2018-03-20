@@ -1,6 +1,8 @@
 Revision history for Perl module Dist-Zilla-PluginBundle-Author-DOHERTY
 
 {{$NEXT}}
+
+0.42      2018-03-19
  - Excise long-deprecated GoogleCode release options
 
 0.41      2018-03-19
