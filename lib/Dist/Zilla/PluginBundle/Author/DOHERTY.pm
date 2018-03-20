@@ -373,8 +373,8 @@ has dzil_files_for_scm => (
     default => sub {
         my $self = shift;
         return [
-            (qw/ Build.PL Makefile.PL /)x!$self->custom_build,
-            qw/ README README.mkdn /,
+            (qw/ Makefile.PL /)x!$self->custom_build,
+            qw/ README.mkdn /,
         ];
     },
 );
